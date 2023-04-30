@@ -1,0 +1,24 @@
+{"Id":0,"UserName":"text@gmail.com","City":"Kyiv, Ukraine","Price":999.99,"TicketNumber":1,"Date":"2023-07-10T00:00:00","Duration":10,"Status":3}
+{"Id":1,"UserName":"text@gmail.com","City":"Kyiv, Ukraine","Price":999.99,"TicketNumber":1,"Date":"2023-07-10T00:00:00","Duration":10,"Status":1}
+{"Id":2,"UserName":"text@gmail.com","City":"Prague, Czech Republic","Price":1999.99,"TicketNumber":1,"Date":"2023-08-01T00:00:00","Duration":15,"Status":1}
+{"Id":4,"UserName":"text@gmail.com","City":"City, Country","Price":999,"TicketNumber":1,"Date":"2023-07-10T00:00:00","Duration":10,"Status":1}
+{"Id":6,"UserName":"text@gmail.com","City":"City, Country4","Price":999,"TicketNumber":1,"Date":"2023-07-10T00:00:00","Duration":10,"Status":1}
+{"Id":8,"UserName":"text@gmail.com","City":"City, Country5","Price":999,"TicketNumber":1,"Date":"2023-07-10T00:00:00","Duration":10,"Status":1}
+{"Id":10,"UserName":"text@gmail.com","City":"City, Country6","Price":999,"TicketNumber":1,"Date":"2023-07-10T00:00:00","Duration":10,"Status":1}
+{"Id":12,"UserName":"text@gmail.com","City":"City, Country7","Price":999,"TicketNumber":1,"Date":"2023-07-10T00:00:00","Duration":10,"Status":1}
+{"Id":14,"UserName":"text@gmail.com","City":"City, Country8","Price":999,"TicketNumber":1,"Date":"2023-07-10T00:00:00","Duration":10,"Status":1}
+{"Id":16,"UserName":"text@gmail.com","City":"City, Country9","Price":999,"TicketNumber":1,"Date":"2023-07-10T00:00:00","Duration":10,"Status":1}
+{"Id":17,"UserName":"text@gmail.com","City":"City, Country10","Price":999,"TicketNumber":1,"Date":"2023-07-10T00:00:00","Duration":10,"Status":1}
+{"Id":19,"UserName":"text@gmail.com","City":"City, Country11","Price":999,"TicketNumber":1,"Date":"2023-07-21T00:00:00","Duration":10,"Status":1}
+{"Id":21,"UserName":"text@gmail.com","City":"City, Country12","Price":999,"TicketNumber":1,"Date":"2023-07-22T00:00:00","Duration":10,"Status":1}
+{"Id":23,"UserName":"text@gmail.com","City":"City, Country13","Price":999,"TicketNumber":1,"Date":"2023-07-23T00:00:00","Duration":10,"Status":1}
+{"Id":25,"UserName":"text@gmail.com","City":"City, Country14","Price":999,"TicketNumber":1,"Date":"2023-07-24T00:00:00","Duration":10,"Status":1}
+{"Id":27,"UserName":"text@gmail.com","City":"City, Country15","Price":999,"TicketNumber":1,"Date":"2023-07-25T00:00:00","Duration":10,"Status":1}
+{"Id":29,"UserName":"text@gmail.com","City":"City, Country16","Price":999,"TicketNumber":1,"Date":"2023-07-26T00:00:00","Duration":10,"Status":1}
+{"Id":31,"UserName":"text@gmail.com","City":"City, Country17","Price":999,"TicketNumber":1,"Date":"2023-07-27T00:00:00","Duration":10,"Status":1}
+{"Id":33,"UserName":"text@gmail.com","City":"City, Country18","Price":999,"TicketNumber":1,"Date":"2023-07-28T00:00:00","Duration":10,"Status":1}
+{"Id":35,"UserName":"text@gmail.com","City":"City, Country19","Price":999,"TicketNumber":1,"Date":"2023-07-29T00:00:00","Duration":10,"Status":1}
+{"Id":37,"UserName":"text@gmail.com","City":"City, Country20","Price":999,"TicketNumber":1,"Date":"2023-07-30T00:00:00","Duration":10,"Status":1}
+{"Id":39,"UserName":"text@gmail.com","City":"City, Country21","Price":999,"TicketNumber":1,"Date":"2023-07-31T00:00:00","Duration":10,"Status":1}
+{"Id":41,"UserName":"text@gmail.com","City":"City, Country22","Price":999,"TicketNumber":1,"Date":"2023-08-01T00:00:00","Duration":10,"Status":1}
+{"Id":43,"UserName":"text@gmail.com","City":"City, Country23","Price":999,"TicketNumber":1,"Date":"2023-08-02T00:00:00","Duration":10,"Status":1}

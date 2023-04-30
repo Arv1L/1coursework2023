@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TourAgency", "TourAgency\TourAgency.csproj", "{9C338D58-C256-4107-AC90-0C429011FCBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{2A2FB54C-A2A5-4310-8E42-04F2B6F16B38}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C338D58-C256-4107-AC90-0C429011FCBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C338D58-C256-4107-AC90-0C429011FCBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C338D58-C256-4107-AC90-0C429011FCBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C338D58-C256-4107-AC90-0C429011FCBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A2FB54C-A2A5-4310-8E42-04F2B6F16B38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A2FB54C-A2A5-4310-8E42-04F2B6F16B38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A2FB54C-A2A5-4310-8E42-04F2B6F16B38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A2FB54C-A2A5-4310-8E42-04F2B6F16B38}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4483CDB0-AD78-450E-82AE-9AB1EC28B8AF}
+	EndGlobalSection
+EndGlobal

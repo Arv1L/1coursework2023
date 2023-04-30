@@ -1,0 +1,86 @@
+[
+  {
+    "Id": 0,
+    "UserId": 3,
+    "TourId": 0,
+    "UserName": "Name User",
+    "City": "Київ",
+    "Price": 2999.97,
+    "TicketNumber": 3,
+    "Date": "2023-07-05T00:00:00",
+    "Duration": 7,
+    "Status": 3
+  },
+  {
+    "Id": 1,
+    "UserId": 2,
+    "TourId": 0,
+    "UserName": "Taras Shevchenko",
+    "City": "Київ",
+    "Price": 3999.96,
+    "TicketNumber": 4,
+    "Date": "2023-07-05T00:00:00",
+    "Duration": 7,
+    "Status": 1
+  },
+  {
+    "Id": 2,
+    "UserId": 1,
+    "TourId": 3,
+    "UserName": "Ivan Bahrianyi",
+    "City": "Львів",
+    "Price": 4999.95,
+    "TicketNumber": 5,
+    "Date": "2023-07-29T00:00:00",
+    "Duration": 7,
+    "Status": 1
+  },
+  {
+    "Id": 3,
+    "UserId": 3,
+    "TourId": 5,
+    "UserName": "Name User",
+    "City": "Варшава",
+    "Price": 7499.95,
+    "TicketNumber": 5,
+    "Date": "2023-07-05T00:00:00",
+    "Duration": 7,
+    "Status": 1
+  },
+  {
+    "Id": 4,
+    "UserId": 3,
+    "TourId": 3,
+    "UserName": "Name User",
+    "City": "Львів",
+    "Price": 1999.98,
+    "TicketNumber": 2,
+    "Date": "2023-07-29T00:00:00",
+    "Duration": 7,
+    "Status": 3
+  },
+  {
+    "Id": 5,
+    "UserId": 2,
+    "TourId": 5,
+    "UserName": "Taras Shevchenko",
+    "City": "Варшава",
+    "Price": 7499.95,
+    "TicketNumber": 5,
+    "Date": "2023-07-05T00:00:00",
+    "Duration": 7,
+    "Status": 3
+  },
+  {
+    "Id": 6,
+    "UserId": 1,
+    "TourId": 0,
+    "UserName": "Ivan Bahrianyi",
+    "City": "Київ",
+    "Price": 5999.94,
+    "TicketNumber": 6,
+    "Date": "2023-07-05T00:00:00",
+    "Duration": 7,
+    "Status": 1
+  }
+]

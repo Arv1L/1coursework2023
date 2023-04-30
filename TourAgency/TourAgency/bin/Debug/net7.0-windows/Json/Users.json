@@ -1,0 +1,30 @@
+[
+  {
+    "Id": 1,
+    "Email": "bahrivan@gmail.com",
+    "Name": "Ivan Bahrianyi",
+    "Password": "1q2w3e4r",
+    "Status": 1
+  },
+  {
+    "Id": 2,
+    "Email": "shev.taras@gmail.com",
+    "Name": "Taras Shevchenko",
+    "Password": "1q2w3e4r",
+    "Status": 1
+  },
+  {
+    "Id": 3,
+    "Email": "test@gmail.com",
+    "Name": "Name User",
+    "Password": "1q2w3e4r",
+    "Status": 1
+  },
+  {
+    "Id": 0,
+    "Email": "admin@gmail.com",
+    "Name": "Volodymyr Kibets",
+    "Password": "1q2w3e4r",
+    "Status": 0
+  }
+]

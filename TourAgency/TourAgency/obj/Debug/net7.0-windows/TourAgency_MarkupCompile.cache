@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Projects\C#\Курсовий проєкт\TourAgency\TourAgency\obj\Debug\net7.0-windows\
+D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Debug\net7.0-windows\
 TourAgency
 none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
-D:\Projects\C#\Курсовий проєкт\TourAgency\TourAgency\App.xaml
-2516587238
+D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\App.xaml
+10-1435366530
 
 20598526080
 200-1174872846
-AdminWindow.xaml;MainWindow.xaml;
+AdminWindow.xaml;MainWindow.xaml;Styles\Buttons.xaml;Styles\Colors.xaml;Styles\Converters.xaml;Styles\DataGrids.xaml;Styles\ListViewes.xaml;Styles\Text.xaml;Styles\TextBoxes.xaml;Styles\Windows.xaml;
 
 False
 

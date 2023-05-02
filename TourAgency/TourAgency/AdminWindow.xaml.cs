@@ -162,5 +162,17 @@ namespace TourAgency
 
         private void OnClose(object sender, RoutedEventArgs e) => Hide();
         #endregion
+
+        private void EditClose(object sender, RoutedEventArgs e)
+        {
+            editCurrentTour.Visibility = Visibility.Collapsed;
+            editCountryBox.Text = string.Empty;
+            editNameBox.Text = string.Empty;
+            editDateBox.Text = string.Empty;
+            editDurationBox.Text = string.Empty;
+            editPriceBox.Text = string.Empty;
+            editTicketCountBox.Text = string.Empty;
+            editDescriptionBox.Text = string.Empty;
+        }
     }
 }

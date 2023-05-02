@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Controls;
 
 namespace TourAgency.Models
 {
     public class Agency
     {
         #region Constants
-        public const string TOURS_PATH     = "Json\\Tours.json";
-        public const string USERS_PATH     = "Json\\Users.json";
-        public const string ADMINS_PATH    = "Json\\Admins.json";
-        public const string ORDERS_PATH    = "Json\\Orders.json";
+        public const string TOURS_PATH = "Json\\Tours.json";
+        public const string USERS_PATH = "Json\\Users.json";
+        public const string ADMINS_PATH = "Json\\Admins.json";
+        public const string ORDERS_PATH = "Json\\Orders.json";
         #endregion
 
         #region Static properties
@@ -217,7 +216,7 @@ namespace TourAgency.Models
                     }
                     else
                         if (Users.FirstOrDefault(u => u.Email == admin.Email) == null)
-                            Users.Add(admin);
+                        Users.Add(admin);
                 }
             }
         }

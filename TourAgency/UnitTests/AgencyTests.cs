@@ -124,7 +124,7 @@ namespace UnitTests
         public void OrderATour_UserNull_ReturnsErrorMessage()
         {
             // Arrange
-            Agency.Instance.CurrentTour = new Tour("Country", "City", DateTime.Parse("10.07.2023"), 10, 999, 30, "Description");
+            Agency.Instance.CurrentTour = new Tour("Country", "City", DateTime.Parse("10.07.2023"), 10, 999, TourStatus.Actual, 30, "Description");
             Agency.Instance.CurrentUser = null;
 
             // Act
@@ -155,7 +155,7 @@ namespace UnitTests
 
             int counter = Agency.Instance.Orders.Count;
             User user = new RegisteredUser("text@gmail.com", "Name Surname", "1q2w3e4r");
-            Tour tour = new Tour($"Country{counter}", "City", DateTime.Parse("10.07.2023").AddDays(counter), 10, 999, 30, "Description");
+            Tour tour = new Tour($"Country{counter}", "City", DateTime.Parse("10.07.2023").AddDays(counter), 10, 999, TourStatus.Actual, 30, "Description");
             Agency.Instance.CurrentUser = user;
             Agency.Instance.CurrentTour = tour;
             int actualOrderNumber = Agency.Instance.Orders.Count;
@@ -184,7 +184,7 @@ namespace UnitTests
         {
             // Arrange
             User user = new RegisteredUser("text@gmail.com", "Name Surname", "1q2w3e4r");
-            Tour tour = new Tour("Country", "City", DateTime.Parse("10.07.2023"), 10, 999, 30, "Description") { CurrentTicketsNumber = 5 };
+            Tour tour = new Tour("Country", "City", DateTime.Parse("10.07.2023"), 10, 999, TourStatus.Actual, 30, "Description") { CurrentTicketsNumber = 5 };
             Agency.Instance.CurrentUser = user;
             Agency.Instance.CurrentTour = tour;
             int actualOrderNumber = Agency.Instance.Orders.Count;

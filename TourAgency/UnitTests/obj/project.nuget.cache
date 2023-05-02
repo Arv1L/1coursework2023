@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/Aq/S5cCokABvn9B3X3YrIL59BfuIocsXENQOHUaWzEyg/YvJmINCtJDcUYwa0GZkisU91wzk4l8vxGY4SKvMA==",
+  "dgSpecHash": "ysKD6pL96sK35k6ue5tObWVlDTVEsoIIC/tC/gRT0fRsKH6MHVLNr1vbUat5z42+D0b612/2lXsbxE3Q9oXJNg==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\C#\\Курсовий проєкт\\TourAgency\\UnitTests\\UnitTests.csproj",
+  "projectFilePath": "D:\\GitHub Repositories\\1coursework2023\\TourAgency\\UnitTests\\UnitTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vovak\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\vovak\\.nuget\\packages\\mahapps.metro.iconpacks.material\\4.11.0\\mahapps.metro.iconpacks.material.4.11.0.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\C#\\Курсовий проєкт\\TourAgency\\UnitTests\\UnitTests.csproj": {}
+    "D:\\GitHub Repositories\\1coursework2023\\TourAgency\\UnitTests\\UnitTests.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\C#\\Курсовий проєкт\\TourAgency\\TourAgency\\TourAgency.csproj": {
+    "D:\\GitHub Repositories\\1coursework2023\\TourAgency\\TourAgency\\TourAgency.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\C#\\Курсовий проєкт\\TourAgency\\TourAgency\\TourAgency.csproj",
+        "projectUniqueName": "D:\\GitHub Repositories\\1coursework2023\\TourAgency\\TourAgency\\TourAgency.csproj",
         "projectName": "TourAgency",
-        "projectPath": "D:\\Projects\\C#\\Курсовий проєкт\\TourAgency\\TourAgency\\TourAgency.csproj",
+        "projectPath": "D:\\GitHub Repositories\\1coursework2023\\TourAgency\\TourAgency\\TourAgency.csproj",
         "packagesPath": "C:\\Users\\vovak\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\C#\\Курсовий проєкт\\TourAgency\\TourAgency\\obj\\",
+        "outputPath": "D:\\GitHub Repositories\\1coursework2023\\TourAgency\\TourAgency\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Visual Studio\\Shared\\NuGetPackages"
@@ -73,14 +73,14 @@
         }
       }
     },
-    "D:\\Projects\\C#\\Курсовий проєкт\\TourAgency\\UnitTests\\UnitTests.csproj": {
+    "D:\\GitHub Repositories\\1coursework2023\\TourAgency\\UnitTests\\UnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\C#\\Курсовий проєкт\\TourAgency\\UnitTests\\UnitTests.csproj",
+        "projectUniqueName": "D:\\GitHub Repositories\\1coursework2023\\TourAgency\\UnitTests\\UnitTests.csproj",
         "projectName": "UnitTests",
-        "projectPath": "D:\\Projects\\C#\\Курсовий проєкт\\TourAgency\\UnitTests\\UnitTests.csproj",
+        "projectPath": "D:\\GitHub Repositories\\1coursework2023\\TourAgency\\UnitTests\\UnitTests.csproj",
         "packagesPath": "C:\\Users\\vovak\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\C#\\Курсовий проєкт\\TourAgency\\UnitTests\\obj\\",
+        "outputPath": "D:\\GitHub Repositories\\1coursework2023\\TourAgency\\UnitTests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Visual Studio\\Shared\\NuGetPackages"
@@ -102,8 +102,8 @@
           "net7.0-windows7.0": {
             "targetAlias": "net7.0-windows",
             "projectReferences": {
-              "D:\\Projects\\C#\\Курсовий проєкт\\TourAgency\\TourAgency\\TourAgency.csproj": {
-                "projectPath": "D:\\Projects\\C#\\Курсовий проєкт\\TourAgency\\TourAgency\\TourAgency.csproj"
+              "D:\\GitHub Repositories\\1coursework2023\\TourAgency\\TourAgency\\TourAgency.csproj": {
+                "projectPath": "D:\\GitHub Repositories\\1coursework2023\\TourAgency\\TourAgency\\TourAgency.csproj"
               }
             }
           }

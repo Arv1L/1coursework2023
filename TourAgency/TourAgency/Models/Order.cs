@@ -54,7 +54,7 @@ namespace TourAgency.Models
         public Order(int id, int userId, int tourId, string userName, string city, float price, int ticketNumber, DateTime date, int duration, OrderStatus status)
         {
             Id = id;
-            UserId = userId; 
+            UserId = userId;
             TourId = tourId;
             UserName = userName;
             City = city;

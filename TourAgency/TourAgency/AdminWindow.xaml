@@ -6,9 +6,9 @@
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:local="clr-namespace:TourAgency"
         mc:Ignorable="d" Height="800" Width="1100"
-        Style="{StaticResource ModifiedWindow}"
+        Style="{DynamicResource ModifiedWindow}"
         WindowStartupLocation="CenterScreen">
-    <Border Background="{StaticResource ThemeSecondaryColor}" 
+    <Border Background="{DynamicResource AlmostWhite}" 
             CornerRadius="10">
         <Grid>
             <Grid.RowDefinitions>
@@ -16,21 +16,10 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid MouseDown="DragWindow" Background="Transparent">
-                <TextBlock Text="Admin Tool" 
-                           Padding="0 14" 
-                           HorizontalAlignment="Center" 
-                           FontSize="18" FontWeight="Black" 
-                           Foreground="{StaticResource ThemeMainColor}"/>
-                <StackPanel Orientation="Horizontal" 
-                            HorizontalAlignment="Right" 
-                            VerticalAlignment="Top" 
-                            Margin="10 10">
-                    <Button Content="—" Click="OnMinimize" 
-                            Style="{StaticResource MainControl}" 
-                            Template="{DynamicResource MinButton}"/>
-                    <Button Content="X" Click="OnClose"
-                            Style="{StaticResource MainControl}" 
-                            Template="{DynamicResource CloseButton}"/>
+                <TextBlock Text="Admin Tool" Padding="0 14" HorizontalAlignment="Center" FontSize="18" FontWeight="Black" Foreground="{DynamicResource SeaGreen}"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10 10">
+                    <Button Content="—" Click="OnMinimize" Style="{DynamicResource MainControl}" Template="{DynamicResource MinButton}"/>
+                    <Button Content="X" Click="OnClose" Style="{DynamicResource MainControl}" Template="{DynamicResource CloseButton}"/>
                 </StackPanel>
             </Grid>
 
@@ -40,71 +29,35 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 
-                <StackPanel HorizontalAlignment="Left" 
-                            VerticalAlignment="Top">
-                    <Border Background="{StaticResource ThemeMainColor}" 
-                            Margin="20 10" CornerRadius="20">
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Border Background="{DynamicResource SeaGreen}" Margin="20 10" CornerRadius="20">
 
-                        <StackPanel Margin="20 10" Width="250"
-                                    Background="{StaticResource ThemeMainColor}">
-                            <TextBlock Text="Новий тур" 
-                                       HorizontalAlignment="Center" 
-                                       Foreground="{StaticResource ThemeSecondaryColor}" 
-                                       FontWeight="Black" FontSize="20" 
-                                       Margin="0 0 0 5"/>   
+                        <StackPanel Margin="20 10" Width="250" Background="{DynamicResource SeaGreen}">
+                            <TextBlock Text="Новий тур" HorizontalAlignment="Center" Foreground="{DynamicResource LightGray}" FontWeight="Black" FontSize="20" Margin="0 0 0 5"/>   
 
-                            <TextBlock Text="Країна" Margin="10 0 0 2" FontWeight="Bold" 
-                                       Foreground="{StaticResource ThemeSecondaryColor}"/>
-                            <TextBox x:Name="countryBox" 
-                                     Style="{StaticResource CustomTextBox}"/>
-
-                            <TextBlock Text="Місто" Margin="10 10 0 2" FontWeight="Bold" 
-                                       Foreground="{StaticResource ThemeSecondaryColor}"/>
-                            <TextBox x:Name="nameBox"
-                                     Style="{StaticResource CustomTextBox}"/>
-
-                            <TextBlock Text="Дата відправки" Margin="10 10 0 2" FontWeight="Bold" 
-                                       Foreground="{StaticResource ThemeSecondaryColor}"/>
-                            <TextBox x:Name="dateBox" 
-                                     Style="{StaticResource CustomTextBox}"/>
-
-                            <TextBlock Text="Тривалість туру" Margin="10 10 0 2" FontWeight="Bold" 
-                                       Foreground="{StaticResource ThemeSecondaryColor}"/>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBox x:Name="durationBox" 
-                                     Style="{StaticResource CustomTextBox}" Width="210"/>
-                                <TextBlock Text="  днів" 
-                                           VerticalAlignment="Center" 
-                                           HorizontalAlignment="Right" 
-                                           FontWeight="Bold" 
-                                           Foreground="{StaticResource ThemeSecondaryColor}"/>
+                            <TextBox x:Name="countryBox" Style="{DynamicResource AgencyTextBox}" Tag="Країна" Margin="0 10 0 0"/>
+                            
+                            <TextBox x:Name="nameBox" Style="{DynamicResource AgencyTextBox}" Tag="Місто" Margin="0 10 0 0"/>
+                            
+                            <TextBox x:Name="dateBox" Style="{DynamicResource AgencyTextBox}" Tag="Дата відправки" Margin="0 10 0 0"/>
+                            
+                            <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                                <TextBox x:Name="durationBox" Style="{DynamicResource AgencyTextBox}" Width="210" Tag="Тривалість туру"/>
+                                <TextBlock Text="  днів" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="Bold" Foreground="{DynamicResource LightGray}"/>
                             </StackPanel>
-
-                            <TextBlock Text="Вартість" Margin="10 10 0 2" FontWeight="Bold" 
-                                       Foreground="{StaticResource ThemeSecondaryColor}"/>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBox x:Name="priceBox" 
-                                         Style="{StaticResource CustomTextBox}" Width="210"/>
-                                <TextBlock Text="  грн" 
-                                           VerticalAlignment="Center" 
-                                           HorizontalAlignment="Right" 
-                                           FontWeight="Bold" 
-                                           Foreground="{StaticResource ThemeSecondaryColor}"/>
+                            
+                            <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                                <TextBox x:Name="priceBox" Style="{DynamicResource AgencyTextBox}" Width="210" Tag="Вартість"/>
+                                <TextBlock Text="  грн" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="Bold" Foreground="{DynamicResource LightGray}"/>
                             </StackPanel>
-
-                            <TextBlock Text="Кількість квитків" Margin="10 10 0 2" FontWeight="Bold" 
-                                       Foreground="{StaticResource ThemeSecondaryColor}"/>
-                            <TextBox x:Name="ticketCountBox" 
-                                     Style="{StaticResource CustomTextBox}"/>
-
-                            <TextBlock Text="Опис" Margin="10 10 0 2" FontWeight="Bold" 
-                                   Foreground="{StaticResource ThemeSecondaryColor}"/>
-                            <TextBox x:Name="descriptionBox" TextWrapping="Wrap" Padding="5"
-                                 AcceptsReturn="True" Height="150" VerticalAlignment="Top"
-                                 Style="{StaticResource CustomTextBox}"/>
+                            
+                            <TextBox x:Name="ticketCountBox" Style="{DynamicResource AgencyTextBox}" Tag="Кількість квитків" Margin="0 10 0 0"/>
+                            
+                            <TextBox x:Name="descriptionBox" TextWrapping="Wrap" Padding="5" AcceptsReturn="True" Height="150" VerticalAlignment="Top"
+                                     Style="{DynamicResource AgencyTextBox}" Tag="Опис" VerticalContentAlignment="Top" Margin="0 10 0 0"/>
 
                             <Button Click="SaveTour" Content="Зберегти" Margin="0 20 0 10" 
-                                Style="{StaticResource Control}" Width="250" Height="40"/>
+                                Style="{DynamicResource Control}" Width="250" Height="40"/>
                         </StackPanel>
                     </Border>
                 </StackPanel>
@@ -119,7 +72,7 @@
 
                         <local:ClippingBorder Margin="0 10" Padding="0 0 20 0">
                             <StackPanel>
-                                <DataGrid Padding="10" Style="{StaticResource ModifiedDataGrid}" CellStyle="{StaticResource ModifiedGridCell}" RowStyle="{StaticResource ModifiedGridRow}" ColumnHeaderStyle="{StaticResource ModifiedGridColumnHeader}" x:Name="orderList">
+                                <DataGrid Padding="10" Style="{DynamicResource ModifiedDataGrid}" CellStyle="{DynamicResource ModifiedGridCell}" RowStyle="{DynamicResource ModifiedGridRow}" ColumnHeaderStyle="{DynamicResource ModifiedGridColumnHeader}" x:Name="orderList">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="#" Binding="{Binding Id}" Width="Auto"/>
                                         <DataGridTextColumn Header="Користувач" Binding="{Binding UserName}" Width="1.2*"/>
@@ -136,7 +89,7 @@
 
                         <local:ClippingBorder Margin="0 10" Padding="0 0 20 0" Grid.Row="1">
                             <StackPanel>
-                                <DataGrid Padding="10" SelectionMode="Single" Style="{StaticResource ModifiedDataGrid}" CellStyle="{StaticResource ModifiedGridCell}" RowStyle="{StaticResource ModifiedGridRow}" ColumnHeaderStyle="{StaticResource ModifiedGridColumnHeader}" x:Name="tourList">
+                                <DataGrid Padding="10" SelectionMode="Single" Style="{DynamicResource ModifiedDataGrid}" CellStyle="{DynamicResource ModifiedGridCell}" RowStyle="{DynamicResource ModifiedGridRow}" ColumnHeaderStyle="{DynamicResource ModifiedGridColumnHeader}" x:Name="tourList">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="#" Binding="{Binding Id}" Width="Auto"/>
                                         <DataGridTextColumn Header="Місто" Binding="{Binding City}" Width="*"/>
@@ -148,12 +101,12 @@
                                                 <DataTemplate>
                                                     <StackPanel Orientation="Horizontal">
                                                         <local:ClippingBorder CornerRadius="20">
-                                                            <Button Margin="0 0 1 0" Click="EditClick" Background="CornflowerBlue" Tag="{Binding Status,  Converter={StaticResource EnumToStringConverter}}" Style="{StaticResource OperationControl}">
+                                                            <Button Margin="0 0 1 0" Click="EditClick" Background="CornflowerBlue" Tag="{Binding Status,  Converter={DynamicResource EnumToStringConverter}}" Style="{DynamicResource OperationControl}">
                                                                 <Icon:PackIconMaterial Kind="PencilOutline"/>
                                                             </Button>
                                                         </local:ClippingBorder>
                                                         <local:ClippingBorder CornerRadius="20">
-                                                            <Button Margin="1 0 0 0" Click="RemoveClick" Background="IndianRed" Tag="{Binding Status,  Converter={StaticResource EnumToStringConverter}}" Style="{StaticResource OperationControl}">
+                                                            <Button Margin="1 0 0 0" Click="RemoveClick" Background="IndianRed" Tag="{Binding Status,  Converter={DynamicResource EnumToStringConverter}}" Style="{DynamicResource OperationControl}">
                                                                 <Icon:PackIconMaterial Kind="TrashCanOutline"/>
                                                             </Button>
                                                         </local:ClippingBorder>
@@ -163,68 +116,55 @@
                                         </DataGridTemplateColumn>
                                     </DataGrid.Columns>
                                 </DataGrid>
-                                <TextBlock Text="Турів немає" HorizontalAlignment="Center" x:Name="toursAreEmpty" Foreground="#555555"/>
+                                <TextBlock Text="Турів немає" HorizontalAlignment="Center" x:Name="toursAreEmpty" Foreground="{DynamicResource DarkGray}"/>
                             </StackPanel>
                         </local:ClippingBorder>
 
-                        <Border CornerRadius="10" x:Name="editCurrentTour" Visibility="Collapsed" Grid.RowSpan="2" Background="{StaticResource ThemeMainColor}" Width="390" Height="550">
-                            <StackPanel Margin="20 10" Width="350"
-                                    Background="{StaticResource ThemeMainColor}">
-  
-                                <TextBlock Text="Країна" Margin="10 0 0 2" FontWeight="Bold" 
-                                       Foreground="{StaticResource ThemeSecondaryColor}"/>
-                                <TextBox x:Name="editCountryBox" 
-                                     Style="{StaticResource CustomTextBox}"/>
+                        <local:ClippingBorder CornerRadius="10" x:Name="editCurrentTour" Visibility="Collapsed" Grid.RowSpan="2" Background="{DynamicResource AlmostWhite}" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="20" ShadowDepth="0" Opacity=".3"/>
+                            </Border.Effect>
 
-                                <TextBlock Text="Місто" Margin="10 10 0 2" FontWeight="Bold" 
-                                       Foreground="{StaticResource ThemeSecondaryColor}"/>
-                                <TextBox x:Name="editNameBox"
-                                     Style="{StaticResource CustomTextBox}"/>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
 
-                                <TextBlock Text="Дата відправки" Margin="10 10 0 2" FontWeight="Bold" 
-                                       Foreground="{StaticResource ThemeSecondaryColor}"/>
-                                <TextBox x:Name="editDateBox" 
-                                     Style="{StaticResource CustomTextBox}"/>
+                                <Grid>
+                                    <TextBlock Text="Редагування" Padding="0 14" HorizontalAlignment="Center" FontSize="18" FontWeight="Black" Foreground="{DynamicResource SeaGreen}"/>
+                                    <Button Content="X" Click="EditClose" Style="{DynamicResource MainControl}" Template="{DynamicResource SubCloseButton}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="50"/>
+                                </Grid>
 
-                                <TextBlock Text="Тривалість туру" Margin="10 10 0 2" FontWeight="Bold" 
-                                       Foreground="{StaticResource ThemeSecondaryColor}"/>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBox x:Name="editDurationBox" 
-                                     Style="{StaticResource CustomTextBox}" Width="210"/>
-                                    <TextBlock Text="  днів" 
-                                           VerticalAlignment="Center" 
-                                           HorizontalAlignment="Right" 
-                                           FontWeight="Bold" 
-                                           Foreground="{StaticResource ThemeSecondaryColor}"/>
-                                </StackPanel>
+                                <Border Grid.Row="1" Background="{DynamicResource SeaGreen}" Margin="20" CornerRadius="10">
+                                    <StackPanel Margin="20 10" Width="350" Background="{DynamicResource SeaGreen}">
 
-                                <TextBlock Text="Вартість" Margin="10 10 0 2" FontWeight="Bold" 
-                                       Foreground="{StaticResource ThemeSecondaryColor}"/>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBox x:Name="editPriceBox" 
-                                         Style="{StaticResource CustomTextBox}" Width="210"/>
-                                    <TextBlock Text="  грн" 
-                                           VerticalAlignment="Center" 
-                                           HorizontalAlignment="Right" 
-                                           FontWeight="Bold" 
-                                           Foreground="{StaticResource ThemeSecondaryColor}"/>
-                                </StackPanel>
+                                        <TextBox x:Name="editCountryBox" Style="{DynamicResource AgencyTextBox}" Margin="0 10" Tag="Країна"/>
 
-                                <TextBlock Text="Кількість квитків" Margin="10 10 0 2" FontWeight="Bold" 
-                                       Foreground="{StaticResource ThemeSecondaryColor}"/>
-                                <TextBox x:Name="editTicketCountBox" 
-                                     Style="{StaticResource CustomTextBox}"/>
+                                        <TextBox x:Name="editNameBox" Style="{DynamicResource AgencyTextBox}" Margin="0 10" Tag="Місто"/>
 
-                                <TextBlock Text="Опис" Margin="10 10 0 2" FontWeight="Bold" 
-                                   Foreground="{StaticResource ThemeSecondaryColor}"/>
-                                <TextBox x:Name="editDescriptionBox" TextWrapping="Wrap" Padding="5"
-                                 AcceptsReturn="True" Height="100" VerticalAlignment="Top"
-                                 Style="{StaticResource CustomTextBox}"/>
+                                        <TextBox x:Name="editDateBox" Style="{DynamicResource AgencyTextBox}" Margin="0 10" Tag="Дата відправки"/>
 
-                                <Button Click="EditCurrentTour" Content="Зберегти" Margin="0 20 0 10" 
-                                Style="{StaticResource Control}" Height="40"/>
-                            </StackPanel>
-                        </Border>
+                                        <StackPanel Orientation="Horizontal" Margin="0 10">
+                                            <TextBox x:Name="editDurationBox" Style="{DynamicResource AgencyTextBox}" Tag="Тривалість туру" Width="250"/>
+                                            <TextBlock Text="  днів" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="Bold" Foreground="{DynamicResource LightGray}"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Margin="0 10">
+                                            <TextBox x:Name="editPriceBox" Style="{DynamicResource AgencyTextBox}" Tag="Вартість" Width="250"/>
+                                            <TextBlock Text="  грн" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="Bold" Foreground="{DynamicResource LightGray}"/>
+                                        </StackPanel>
+
+                                        <TextBox x:Name="editTicketCountBox" Style="{DynamicResource AgencyTextBox}" Margin="0 10" Tag="Кількість квитків"/>
+                                        
+                                        <TextBox x:Name="editDescriptionBox" TextWrapping="Wrap" Padding="5" AcceptsReturn="True" Height="100" VerticalAlignment="Top" 
+                                                 VerticalContentAlignment="Top" Style="{DynamicResource AgencyTextBox}" Margin="0 10" Tag="Опис"/>
+
+                                        <Button Click="EditCurrentTour" Content="Зберегти" Margin="0 20 0 10" Style="{DynamicResource Control}" Height="40"/>
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                        </local:ClippingBorder>
 
                     </Grid>
                 </Border>

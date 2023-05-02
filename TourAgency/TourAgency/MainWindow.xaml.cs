@@ -6,7 +6,6 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using TourAgency.Models;
 
@@ -35,7 +34,7 @@ namespace TourAgency
             var collectionView = new ListCollectionView(Agency.Instance.Tours);
             collectionView.SortDescriptions.Add(new SortDescription("Country", ListSortDirection.Ascending));
             collectionView.SortDescriptions.Add(new SortDescription("City", ListSortDirection.Ascending));
-            locationList.ItemsSource = collectionView;
+            tourList.ItemsSource = collectionView;
         }
 
         #region UserPanel
@@ -94,7 +93,7 @@ namespace TourAgency
 
             if (userOrders.ItemsSource != null)
                 ordersAreEmpty.Visibility = Visibility.Collapsed;
-            else 
+            else
                 userOrders.Visibility = Visibility.Visible;
         }
 
@@ -116,13 +115,13 @@ namespace TourAgency
         {
             string str = searchBox.Text.Trim();
             List<Tour> books = Agency.Instance.Tours.Where(b => b.Country.ToLower().Contains(str) || b.City.ToLower().Contains(str)).ToList();
-            locationList.ItemsSource = books;
+            tourList.ItemsSource = books;
         }
 
         #region Tour manipulations
         private void TourChanged(object sender, SelectionChangedEventArgs e)
         {
-            Tour? tour = Agency.Instance.CurrentTour = locationList.SelectedItem as Tour;
+            Tour? tour = Agency.Instance.CurrentTour = tourList.SelectedItem as Tour;
 
             infoPanel.Visibility = Visibility.Visible;
 
@@ -179,6 +178,8 @@ namespace TourAgency
             priceBlock.Text = Agency.Instance.CurrentTour!.Price.ToString();
         }
 
+        private void ConfirmClose(object sender, RoutedEventArgs e) => confirmOrder.Visibility = Visibility.Collapsed;
+
         private void OnReserved(object sender, RoutedEventArgs e)
         {
             if (int.TryParse(ticketsCountBox.Text, out int count))
@@ -186,7 +187,7 @@ namespace TourAgency
                 string info = Agency.Instance.OrderATour(count);
 
                 tourCurrentTicketNumber.Text = Agency.Instance.CurrentTour!.CurrentTicketsNumber.ToString();
-                locationList.Items.Refresh();
+                tourList.Items.Refresh();
 
                 MessageBox.Show(info);
 
@@ -209,11 +210,11 @@ namespace TourAgency
         private void OnLogin(object sender, RoutedEventArgs e)
         {
             string email = logEmailBox.Text;
-            string pass = logPassBox.Password;
+            string pass = logPassBox.Text;
 
             if (email != null && pass != null)
             {
-                if (Agency.Instance.LoginUser(email, pass, 
+                if (Agency.Instance.LoginUser(email, pass,
                     out string message, out UserStatus status, out string name))
                 {
                     if (status == UserStatus.RegisteredUser)
@@ -225,7 +226,7 @@ namespace TourAgency
                     userButton.Content = name.Split()[0];
 
                     logEmailBox.Text = null;
-                    logPassBox.Password = null;
+                    logPassBox.Text = null;
                     loginForm.Visibility = Visibility.Collapsed;
                 }
                 else
@@ -247,24 +248,24 @@ namespace TourAgency
         #region Registration methods
         private void OnRegistration(object sender, RoutedEventArgs e)
         {
-            if (regEmailBox.Text != null && regNameBox.Text != null && regSurnameBox.Text != null && regPassBox.Password != null && regRepeatPassBox.Password != null)
+            if (regEmailBox.Text != null && regNameBox.Text != null && regSurnameBox.Text != null && regPassBox.Text != null && regRepeatPassBox.Text != null)
             {
                 if (regEmailBox.Text.Contains("@"))
                 {
                     string email = logEmailBox.Text = regEmailBox.Text;
                     string name = $"{regNameBox.Text} {regSurnameBox.Text}";
-                    if (regPassBox.Password == regRepeatPassBox.Password)
-                        if (regPassBox.Password.Length >= 8)
+                    if (regPassBox.Text == regRepeatPassBox.Text)
+                        if (regPassBox.Text.Length >= 8)
                         {
-                            string pass = logPassBox.Password = regPassBox.Password;
+                            string pass = logPassBox.Text = regPassBox.Text;
 
                             if (Agency.Instance.AddUser(email, name, pass))
                             {
                                 regEmailBox.Text = null;
                                 regNameBox.Text = null;
                                 regSurnameBox.Text = null;
-                                regPassBox.Password = null;
-                                regRepeatPassBox.Password = null;
+                                regPassBox.Text = null;
+                                regRepeatPassBox.Text = null;
 
                                 regForm.Visibility = Visibility.Collapsed;
                                 ToLogin();
@@ -294,9 +295,9 @@ namespace TourAgency
 
         private void ItemsSourceUpdated(object? sender, ItemsSourceEventArgs e)
         {
-            locationList.ItemsSource = e.ItemsSource;
+            tourList.ItemsSource = e.ItemsSource;
             SortList();
-            locationList.Items.Refresh();
+            tourList.Items.Refresh();
         }
         #endregion
 
@@ -321,7 +322,7 @@ namespace TourAgency
         private void CancelOrder(object sender, RoutedEventArgs e)
         {
             Button? button = sender as Button;
-            
+
             if (button != null)
             {
                 string? status = button!.Tag.ToString();

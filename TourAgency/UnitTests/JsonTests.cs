@@ -1,6 +1,4 @@
-﻿using System.Text.Json;
-using TourAgency;
-using TourAgency.Models;
+﻿using TourAgency;
 
 namespace UnitTests
 {

@@ -7,12 +7,12 @@
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d" 
         Height="700" Width="900"
-        Style="{StaticResource ModifiedWindow}"
+        Style="{DynamicResource ModifiedWindow}"
         WindowStartupLocation="CenterScreen">
 
-    <Border CornerRadius="30 10 10 10" Background="{StaticResource ThemeSecondaryColor}" ClipToBounds="True">
+    <Border CornerRadius="30 10 10 10" Background="{DynamicResource AlmostWhite}">
         <Grid>
-            
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="Auto"/>
@@ -25,51 +25,14 @@
                         <RowDefinition Height="25"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Rectangle Grid.Row="1" Fill="{StaticResource ThemeMainColor}" Width="100" HorizontalAlignment="Left"/>
-                    <Border HorizontalAlignment="Left" Width="250" Height="50" Grid.RowSpan="2" CornerRadius="30 0 0 30" Background="{StaticResource ThemeSecondaryColor}">
-                        <TextBlock Text="Дивний світ" Padding="0 14" HorizontalAlignment="Center" FontSize="20" FontWeight="Black" Foreground="{StaticResource ThemeMainColor}"/>
+                    <Rectangle Grid.Row="1" Fill="{DynamicResource SeaGreen}" Width="100" HorizontalAlignment="Left"/>
+                    <Border HorizontalAlignment="Left" Width="250" Height="50" Grid.RowSpan="2" CornerRadius="30 0 0 30" Background="{DynamicResource AlmostWhite}">
+                        <TextBlock Text="Дивний світ" Padding="0 14" HorizontalAlignment="Center" FontSize="20" FontWeight="Black" Foreground="{DynamicResource SeaGreen}"/>
                     </Border>
                 </Grid>
-                <StackPanel Orientation="Horizontal" 
-                            HorizontalAlignment="Right" 
-                            VerticalAlignment="Top" 
-                            Margin="10 10">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10 10">
 
-                    <Button x:Name="userButton" Content="Увійти" Click="UserButtonClick"
-                            BorderThickness="0" FontWeight="Bold"
-                            Margin="0 0 120 0" Tag="Увійти">
-                        <Button.Style>
-                            <Style TargetType="{x:Type Button}">
-                                <Setter Property="Background" Value="{StaticResource ThemeSecondaryColor}"/>
-                                <Setter Property="Foreground" Value="{StaticResource ThemeMainColor}"/>
-                                <Setter Property="BorderBrush" Value="{StaticResource ThemeMainColor}"/>
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="{x:Type Button}">
-                                            <Border BorderBrush="{TemplateBinding BorderBrush}" 
-                                                    BorderThickness="2" CornerRadius="10" Padding="10 5"
-                                                    Background="{TemplateBinding Background}">
-                                                <TextBlock Text="{TemplateBinding Content}"
-                                                           Foreground="{TemplateBinding Foreground}"
-                                                           VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                            </Border>
-                                            <ControlTemplate.Triggers>
-                                                <Trigger Property="IsMouseOver" Value="True">
-                                                    <Setter Property="Background" Value="{StaticResource ThemeMainColor}"/>
-                                                    <Setter Property="Foreground" Value="{StaticResource ThemeSecondaryColor}"/>
-                                                </Trigger>
-                                                <Trigger Property="IsPressed" Value="True">
-                                                    <Setter Property="Background" Value="{StaticResource ThemeMainDarkColor}"/>
-                                                    <Setter Property="Foreground" Value="{StaticResource ThemeSecondaryColor}"/>
-                                                    <Setter Property="BorderBrush" Value="{StaticResource ThemeMainDarkColor}"/>
-                                                </Trigger>
-                                            </ControlTemplate.Triggers>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-                        </Button.Style>
-                    </Button>
+                    <Button x:Name="userButton" Content="Увійти" Click="UserButtonClick" FontWeight="Bold" Margin="0 0 120 0" Tag="Увійти" Style="{DynamicResource StrokeButton}"/>
                 </StackPanel>
             </Grid>
             <!--#endregion-->
@@ -81,7 +44,7 @@
                 </Grid.ColumnDefinitions>
 
                 <!--#region Панель турів-->
-                <Border Background="{StaticResource ThemeMainColor}" Height="650" CornerRadius="0 30 0 10">
+                <Border Background="{DynamicResource SeaGreen}" Height="650" CornerRadius="0 30 0 10">
                     <Grid Margin="0 20 0 0">
 
                         <Grid.RowDefinitions>
@@ -90,118 +53,11 @@
                         </Grid.RowDefinitions>
 
                         <Grid Grid.Row="0" VerticalAlignment="Top">
-                            <TextBox x:Name="searchBox" Margin="20 0 20 0" TextChanged="SearchChanged" Tag="Пошук" Style="{StaticResource CustomTextBox}"/>
-                            <TextBlock IsHitTestVisible="False" Text="{Binding Tag, ElementName=searchBox}" Foreground="#777777" Margin="26.5 0 0 0" VerticalAlignment="Center">
-                                <TextBlock.Style>
-                                    <Style TargetType="{x:Type TextBlock}">
-                                        <Setter Property="Visibility" Value="Collapsed"/>
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Text, ElementName=searchBox}" Value="">
-                                                <Setter Property="Visibility" Value="Visible"/>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style>
-                            </TextBlock>
+                            <TextBox x:Name="searchBox" Margin="20 0 20 0" TextChanged="SearchChanged" Tag="Пошук" Style="{DynamicResource AgencyTextBox}"/>
                         </Grid>
 
-                        <ListView x:Name="locationList" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Top" BorderThickness="0" IsTabStop="False" Background="Transparent" Margin="0" Padding="0" SelectionChanged="TourChanged">
-                            <ListView.Style>
-                                <Style TargetType="{x:Type ListView}">
-                                    <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled"/>
-                                    <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
-                                </Style>
-                            </ListView.Style>
-                            <ListView.ItemContainerStyle>
-                                <Style TargetType="{x:Type ListViewItem}">
-                                    <Setter Property="Padding" Value="0"/>
-                                    <Setter Property="Foreground" Value="{StaticResource ThemeSecondaryColor}"/>
-                                    <Setter Property="Background" Value="{StaticResource ThemeMainColor}"/>
-                                    <Setter Property="BorderThickness" Value="0"/>
-                                    <Setter Property="OverridesDefaultStyle" Value="True"/>
-                                    <Setter Property="Margin" Value="0 1"/>
-                                    <Setter Property="Template">
-                                        <Setter.Value>
-                                            <ControlTemplate TargetType="{x:Type ListViewItem}">
-                                                <Grid Height="95">
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="5"/>
-                                                        <ColumnDefinition Width="235"/>
-                                                    </Grid.ColumnDefinitions>
-
-                                                    <local:ClippingBorder x:Name="border"
-                                                                          Grid.Column="1"
-                                                                          VerticalAlignment="Bottom">
-                                                        <Border.Style>
-                                                            <Style TargetType="{x:Type Border}">
-                                                                <Setter Property="CornerRadius" Value="20 0 0 20"/>
-                                                                <Setter Property="Background" Value="{StaticResource ThemeMainDarkColor}"/>
-                                                            </Style>
-                                                        </Border.Style>
-
-
-                                                        <Grid Height="90">
-                                                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                                                                <TextBlock Text="{Binding City}" 
-                                                                    FontSize="20" FontWeight="Bold" 
-                                                                    VerticalAlignment="Bottom"
-                                                                    HorizontalAlignment="Center"/>
-                                                                <TextBlock Text="{Binding Country}" FontSize="12"
-                                                                    VerticalAlignment="Bottom"
-                                                                    HorizontalAlignment="Center"/>
-                                                            </StackPanel>
-                                                            <StackPanel Orientation="Horizontal"
-                                                                VerticalAlignment="Bottom"
-                                                                HorizontalAlignment="Right"
-                                                                Margin="0 0 5 5">
-                                                                <TextBlock Text="{Binding Price}" 
-                                                                    FontSize="12"/>
-                                                                <TextBlock Text="грн"  
-                                                                    FontSize="12" Margin="5 0 0 0"/>
-                                                            </StackPanel>
-                                                        </Grid>
-
-                                                    </local:ClippingBorder>
-
-                                                    <Border CornerRadius="5" 
-                                                            VerticalAlignment="Top"
-                                                            HorizontalAlignment="Left"
-                                                            Background="OrangeRed"
-                                                            x:Name="soldOut"
-                                                            Padding="5"
-                                                            Grid.ColumnSpan="2">
-                                                        <Border.Style>
-                                                            <Style TargetType="{x:Type Border}">
-                                                                <Setter Property="Visibility" Value="Hidden"/>
-                                                                <Style.Triggers>
-                                                                    <DataTrigger Binding="{Binding CurrentTicketsNumber}" Value="0">
-                                                                        <Setter Property="Visibility" Value="Visible"/>
-                                                                    </DataTrigger>
-                                                                </Style.Triggers>
-                                                            </Style>
-                                                        </Border.Style>
-                                                        <TextBlock Text="SOLD OUT"
-                                                                   Foreground="{StaticResource ThemeSecondaryLightColor}"
-                                                                   FontSize="12"
-                                                                   FontWeight="Bold"/>
-                                                    </Border>
-
-                                                </Grid>
-
-                                                <ControlTemplate.Triggers>
-                                                    <Trigger Property="IsMouseOver" Value="True">
-                                                    </Trigger>
-                                                    <Trigger Property="IsSelected" Value="True">
-                                                        <Setter TargetName="border" Property="Background" Value="{StaticResource ThemeSecondaryColor}"/>
-                                                        <Setter Property="Foreground" Value="{StaticResource ThemeMainColor}"/>
-                                                    </Trigger>
-                                                </ControlTemplate.Triggers>
-                                            </ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Style>
-                            </ListView.ItemContainerStyle>
-                        </ListView>
+                        <ListView x:Name="tourList" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Top" BorderThickness="0" IsTabStop="False" Background="Transparent" Margin="0" Padding="0" SelectionChanged="TourChanged"
+                                  Style="{DynamicResource TourListView}" ItemContainerStyle="{DynamicResource TourListViewItem}"/>
                     </Grid>
                 </Border>
                 <!--#endregion-->
@@ -212,51 +68,36 @@
                         <Border.Style>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="20"/>
-                                <Setter Property="Background" Value="{StaticResource ThemeMainColor}"/>
+                                <Setter Property="Background" Value="{DynamicResource AlmostWhite}"/>
                             </Style>
                         </Border.Style>
                         <Grid>
-                            <TextBlock x:Name="tourName"
-                                       VerticalAlignment="Bottom"
-                                       HorizontalAlignment="Left"
-                                       Margin="25"
-                                       Foreground="{StaticResource ThemeSecondaryColor}"
-                                       FontSize="36"
-                                       FontWeight="Bold"/>
-                            <StackPanel VerticalAlignment="Bottom"
-                                        HorizontalAlignment="Right"
-                                        Orientation="Horizontal">
-                                <TextBlock x:Name="tourPrice" 
-                                           Foreground="#ECE279" FontWeight="Bold"
-                                           FontSize="18" HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"/>
-                                <Button Style="{StaticResource Control}" 
-                                        Content="Замовити" Width="150" 
-                                        Height="60" Margin="15" x:Name="orderButton" 
-                                        IsEnabled="False"
-                                        FontSize="16" Click="ConfirmOrder"/>
+                            <TextBlock x:Name="tourName" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="25" Foreground="{DynamicResource SeaGreen}" FontSize="36" FontWeight="Bold"/>
+                            <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Orientation="Horizontal">
+                                <TextBlock x:Name="tourPrice" Foreground="#FACB4B" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Button Style="{DynamicResource GreenControl}" Content="Замовити" Width="150" Height="60" Margin="15" x:Name="orderButton" IsEnabled="False" FontSize="16" Click="ConfirmOrder"/>
                             </StackPanel>
                         </Grid>
                     </local:ClippingBorder>
 
                     <StackPanel Margin="20 10 0 0">
                         <StackPanel>
-                            <TextBlock Text="КРАЇНА" FontSize="11" Margin="0 10 5 0" Foreground="#888888"/>
+                            <TextBlock Text="КРАЇНА" FontSize="11" Margin="0 10 5 0" Foreground="{DynamicResource Gray}"/>
                             <TextBlock FontSize="16" x:Name="tourCountry" Margin="0 0 5 10"/>
                         </StackPanel>
 
                         <StackPanel>
-                            <TextBlock Text="ТРИВАЛІСТЬ ТУРУ" FontSize="11" Margin="0 10 5 0" Foreground="#888888"/>
+                            <TextBlock Text="ТРИВАЛІСТЬ ТУРУ" FontSize="11" Margin="0 10 5 0" Foreground="{DynamicResource Gray}"/>
                             <TextBlock FontSize="16" x:Name="tourDuration" Margin="0 0 5 10"/>
                         </StackPanel>
 
                         <StackPanel>
-                            <TextBlock Text="ДАТА ВІДПРАВЛЕННЯ" FontSize="11" Margin="0 10 5 0" Foreground="#888888"/>
+                            <TextBlock Text="ДАТА ВІДПРАВЛЕННЯ" FontSize="11" Margin="0 10 5 0" Foreground="{DynamicResource Gray}"/>
                             <TextBlock FontSize="16" x:Name="tourDate" Margin="0 0 5 10"/>
                         </StackPanel>
 
                         <StackPanel>
-                            <TextBlock Text="КІЛЬКІСТЬ КВИТКІВ" FontSize="11" Margin="0 10 5 0" Foreground="#888888"/>
+                            <TextBlock Text="КІЛЬКІСТЬ КВИТКІВ" FontSize="11" Margin="0 10 5 0" Foreground="{DynamicResource Gray}"/>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock FontSize="16" x:Name="tourCurrentTicketNumber" Margin="0 0 0 10"/>
                                 <TextBlock FontSize="12" Text=" / " Margin="0 0 0 10" VerticalAlignment="Bottom"/>
@@ -265,7 +106,7 @@
                         </StackPanel>
 
                         <StackPanel>
-                            <TextBlock Text="ОПИС" FontSize="11" Margin="0 10 5 0" Foreground="#888888"/>
+                            <TextBlock Text="ОПИС" FontSize="11" Margin="0 10 5 0" Foreground="{DynamicResource Gray}"/>
                             <TextBlock FontSize="16" x:Name="tourDescription" TextWrapping="Wrap" Margin="0 0 5 10"/>
                         </StackPanel>
                     </StackPanel>
@@ -275,49 +116,60 @@
                 <!--#endregion-->
 
                 <!-- #region Вікно відтвердження бронювання -->
-                <Border Grid.Column="1" Background="{StaticResource ThemeMainColor}" CornerRadius="20" Height="310" Width="250" x:Name="confirmOrder" Visibility="Collapsed">
-                    <StackPanel Margin="15">
-                        <StackPanel Margin="0 0 0 10">
-                            <TextBlock Text="ВАШЕ ІМ'Я" FontSize="10" Foreground="{StaticResource ThemeSecondaryColor}" Margin="0 5"/>
-                            <TextBox x:Name="userNameBox" Text="name" IsEnabled="False" Style="{StaticResource CustomTextBox}"/>
-                        </StackPanel>
+                <local:ClippingBorder Grid.Column="1" Background="{DynamicResource AlmostWhite}" CornerRadius="10" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="confirmOrder" Visibility="Collapsed">
+                    <Border.Effect>
+                        <DropShadowEffect Opacity=".5" ShadowDepth="0" Color="#212121"/>
+                    </Border.Effect>
 
-                        <StackPanel Margin="0 0 0 10">
-                            <TextBlock Text="ВАША ЕЛЕКТРОННА ПОШТА" FontSize="10" Foreground="{StaticResource ThemeSecondaryColor}" Margin="0 5"/>
-                            <TextBox x:Name="userEmailBox" Text="email" IsEnabled="False" Style="{StaticResource CustomTextBox}"/>
-                        </StackPanel>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
 
-                        <StackPanel Margin="0 0 0 10">
-                            <TextBlock Text="КІЛЬКІСТЬ КВИТКІВ" FontSize="10" Foreground="{StaticResource ThemeSecondaryColor}" Margin="0 5"/>
-                            <TextBox x:Name="ticketsCountBox" TextChanged="TicketsCountChanged" Text="1" Style="{StaticResource CustomTextBox}"/>
-                        </StackPanel>
+                        <Grid>
+                            <TextBlock Text="Підтвердження" Padding="0 14" HorizontalAlignment="Center" FontSize="18" FontWeight="Black" Foreground="{DynamicResource SeaGreen}"/>
+                            <Button Content="X" Click="ConfirmClose" Style="{DynamicResource MainControl}" Template="{DynamicResource SubCloseButton}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="50"/>
+                        </Grid>
 
-                        <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
-                            <TextBlock Text="ЦІНА: " Foreground="{StaticResource ThemeSecondaryColor}" FontWeight="Bold" FontSize="18"/>
-                            <TextBlock Text="0" x:Name="priceBlock" Foreground="{StaticResource ThemeSecondaryColor}" FontWeight="Bold" FontSize="18"/>
-                            <TextBlock Text=" ₴" Foreground="{StaticResource ThemeSecondaryColor}" FontWeight="Bold" FontSize="18"/>
-                        </StackPanel>
+                        <Border Grid.Row="1" Background="{DynamicResource SeaGreen}" Margin="20" CornerRadius="10" Height="310" Width="250">
+                            <StackPanel Margin="15">
+                                <StackPanel Margin="0 0 0 10">
+                                    <TextBlock Text="ВАШЕ ІМ'Я" FontSize="10" Foreground="{DynamicResource LightGray}" Margin="0 5"/>
+                                    <TextBox x:Name="userNameBox" Text="name" IsEnabled="False" Style="{DynamicResource AgencyTextBox}" Tag=""/>
+                                </StackPanel>
 
-                        <Button Click="OnReserved" Style="{StaticResource Control}" Content="Замовити" Height="40" Margin="0 5 0 0"/>
-                    </StackPanel>
-                </Border>
+                                <StackPanel Margin="0 0 0 10">
+                                    <TextBlock Text="ВАША ЕЛЕКТРОННА ПОШТА" FontSize="10" Foreground="{DynamicResource LightGray}" Margin="0 5"/>
+                                    <TextBox x:Name="userEmailBox" Text="email" IsEnabled="False" Style="{DynamicResource AgencyTextBox}" Tag=""/>
+                                </StackPanel>
+
+                                <StackPanel Margin="0 0 0 10">
+                                    <TextBlock Text="КІЛЬКІСТЬ КВИТКІВ" FontSize="10" Foreground="{DynamicResource LightGray}" Margin="0 5"/>
+                                    <TextBox x:Name="ticketsCountBox" TextChanged="TicketsCountChanged" Text="1" Style="{DynamicResource AgencyTextBox}" Tag=""/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                                    <TextBlock Text="ЦІНА: " Foreground="{DynamicResource LightGray}" FontWeight="Bold" FontSize="18"/>
+                                    <TextBlock Text="0" x:Name="priceBlock" Foreground="{DynamicResource LightGray}" FontWeight="Bold" FontSize="18"/>
+                                    <TextBlock Text=" ₴" Foreground="{DynamicResource LightGray}" FontWeight="Bold" FontSize="18"/>
+                                </StackPanel>
+
+                                <Button Click="OnReserved" Style="{DynamicResource Control}" Content="Замовити" Height="40" Margin="0 5 0 0"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </local:ClippingBorder>
                 <!--#endregion-->
 
             </Grid>
 
             <!-- #region Вікно авторизації -->
-            <Border Grid.RowSpan="2"
-                    Visibility="Visible"
-                    x:Name="loginForm"
-                    CornerRadius="25 10 10 10">
+            <Border Grid.RowSpan="2" Visibility="Visible" x:Name="loginForm" CornerRadius="25 10 10 10">
                 <Border.Background>
-                    <SolidColorBrush Color="Black"
-                                     Opacity=".5"/>
+                    <SolidColorBrush Color="#212121" Opacity=".5"/>
                 </Border.Background>
-                <local:ClippingBorder
-                                  Width="400" Height="250" 
-                                  CornerRadius="10"
-                                  Background="{StaticResource ThemeSecondaryColor}">
+                <local:ClippingBorder Width="400" Height="250" CornerRadius="10" Background="{DynamicResource AlmostWhite}">
                     <Border.Effect>
                         <DropShadowEffect BlurRadius="20" ShadowDepth="0" Opacity=".3"/>
                     </Border.Effect>
@@ -329,99 +181,18 @@
                         </Grid.RowDefinitions>
 
                         <Grid>
-                            <TextBlock Text="Авторизація" 
-                                   Padding="0 14" 
-                                   HorizontalAlignment="Center" 
-                                   FontSize="18" FontWeight="Black" 
-                                   Foreground="{StaticResource ThemeMainColor}"/>
-                            <Button Content="X" Click="LoginOnClose"
-                                Style="{StaticResource MainControl}" 
-                                Template="{DynamicResource SubCloseButton}"
-                                HorizontalAlignment="Right"
-                                VerticalAlignment="Top"
-                                Width="50"/>
+                            <TextBlock Text="Авторизація" Padding="0 14" HorizontalAlignment="Center" FontSize="18" FontWeight="Black" Foreground="{DynamicResource SeaGreen}"/>
+                            <Button Content="X" Click="LoginOnClose" Style="{DynamicResource MainControl}" Template="{DynamicResource SubCloseButton}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="50"/>
                         </Grid>
 
-                        <Border Grid.Row="1" Margin="20 10"
-                                VerticalAlignment="Bottom"
-                                CornerRadius="10" Padding="10"
-                                Background="{StaticResource ThemeMainColor}">
+                        <Border Grid.Row="1" Margin="20 10" VerticalAlignment="Bottom" CornerRadius="10" Padding="10" Background="{DynamicResource SeaGreen}">
                             <StackPanel>
 
-                                <Grid Margin="10 10 10 5">
-                                    <TextBox Style="{StaticResource CustomTextBox}"
-                                         x:Name="logEmailBox"/>
-                                    <TextBlock Text="Електронна пошта"
-                                           VerticalAlignment="Center"
-                                           Foreground="#777777">
-                                        <TextBlock.Style>
-                                            <Style TargetType="{x:Type TextBlock}">
-                                                <Setter Property="Visibility" Value="Collapsed"/>
-                                                <Setter Property="IsHitTestVisible" Value="False"/>
-                                                <Setter Property="Margin" Value="6.5 0 0 0"/>
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding Text, ElementName=logEmailBox}" Value="">
-                                                        <Setter Property="Visibility" Value="Visible"/>
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </TextBlock.Style>
-                                    </TextBlock>
-                                </Grid>
+                                <TextBox Margin="10 10 10 5" Style="{DynamicResource AgencyTextBox}" Tag="Електронна пошта" x:Name="logEmailBox"/>
+                                <TextBox Margin="10 5 10 5" Style="{DynamicResource AgencyTextBox}" Tag="Пароль" x:Name="logPassBox"/>
 
-                                <Grid Margin="10 5 10 5">
-                                    <PasswordBox Style="{StaticResource CustomPasswordBox}"
-                                             x:Name="logPassBox"/>
-                                    <TextBlock Text="Пароль"
-                                           VerticalAlignment="Center"
-                                           Margin="6.5 0 0 0"
-                                           Foreground="#777777">
-                                        <TextBlock.Style>
-                                            <Style TargetType="{x:Type TextBlock}">
-                                                <Setter Property="Visibility" Value="Collapsed"/>
-                                                <Setter Property="IsHitTestVisible" Value="False"/>
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding Password, ElementName=logPassBox}" Value="">
-                                                        <Setter Property="Visibility" Value="Visible"/>
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </TextBlock.Style>
-                                    </TextBlock>
-                                </Grid>
-
-                                <Button Content="Увійти" Style="{StaticResource Control}" 
-                                    Height="30" Margin="10" Click="OnLogin"/>
-
-                                <Button Click="RegOnOpen">
-                                    <Button.Style>
-                                        <Style TargetType="{x:Type Button}">
-                                            <Setter Property="Background" Value="Transparent"/>
-                                            <Setter Property="Foreground" Value="{StaticResource ThemeSecondaryColor}"/>
-                                            <Setter Property="BorderThickness" Value="0"/>
-                                            <Setter Property="Template">
-                                                <Setter.Value>
-                                                    <ControlTemplate TargetType="{x:Type Button}">
-                                                        <Border Background="Transparent">
-                                                            <TextBlock Text="Не маєте акаунта?" IsHitTestVisible="False"
-                                                                   HorizontalAlignment="Center"
-                                                                   Foreground="{TemplateBinding Foreground}"/>
-                                                        </Border>
-                                                    </ControlTemplate>
-                                                </Setter.Value>
-                                            </Setter>
-                                            <Style.Triggers>
-                                                <Trigger Property="IsMouseOver" Value="True">
-                                                    <Setter Property="Background" Value="Transparent"/>
-                                                    <Setter Property="Foreground" Value="{StaticResource ThemeSecondaryLightColor}"/>
-                                                </Trigger>
-                                                <Trigger Property="IsPressed" Value="True">
-                                                    <Setter Property="Background" Value="Transparent"/>
-                                                    <Setter Property="Foreground" Value="{StaticResource ThemeSecondaryDarkColor}"/>
-                                                </Trigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </Button.Style>
+                                <Button Content="Увійти" Style="{DynamicResource Control}" Height="30" Margin="10" Click="OnLogin"/>
+                                <Button Click="RegOnOpen" Style="{DynamicResource TextButton}" Tag="Не маєте акаунта?">
                                 </Button>
                             </StackPanel>
                         </Border>
@@ -432,17 +203,11 @@
             <!--#endregion-->
 
             <!-- #region Вікно реєстрації -->
-            <Border Grid.RowSpan="2"
-                    x:Name="regForm"
-                    CornerRadius="25 10 10 10"
-                    Visibility="Collapsed">
+            <Border Grid.RowSpan="2" x:Name="regForm" CornerRadius="25 10 10 10" Visibility="Collapsed">
                 <Border.Background>
-                    <SolidColorBrush Color="Black"
-                                     Opacity=".5"/>
+                    <SolidColorBrush Color="#212121" Opacity=".5"/>
                 </Border.Background>
-                <local:ClippingBorder CornerRadius="10"
-                                      Width="400" Height="370"
-                                      Background="{StaticResource ThemeSecondaryColor}">
+                <local:ClippingBorder CornerRadius="10" Width="400" Height="370" Background="{DynamicResource AlmostWhite}">
                     <Border.Effect>
                         <DropShadowEffect BlurRadius="20" ShadowDepth="0" Opacity=".3"/>
                     </Border.Effect>
@@ -454,162 +219,21 @@
                         </Grid.RowDefinitions>
 
                         <Grid Background="Transparent">
-                            <TextBlock Text="Реєстрація" 
-                                   Padding="0 14" 
-                                   HorizontalAlignment="Center" 
-                                   FontSize="18" FontWeight="Black" 
-                                   Foreground="{StaticResource ThemeMainColor}"/>
-                            <Button Content="X" Click="RegOnClose"
-                                Style="{StaticResource MainControl}" 
-                                Template="{DynamicResource SubCloseButton}"
-                                HorizontalAlignment="Right"
-                                VerticalAlignment="Top"/>
+                            <TextBlock Text="Реєстрація" Padding="0 14" HorizontalAlignment="Center" FontSize="18" FontWeight="Black" Foreground="{DynamicResource SeaGreen}"/>
+                            <Button Content="X" Click="RegOnClose" Style="{DynamicResource MainControl}" Template="{DynamicResource SubCloseButton}" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                         </Grid>
 
-                        <Border Grid.Row="1" Margin="20 10"
-                                VerticalAlignment="Bottom"
-                                CornerRadius="10" Padding="10"
-                                Background="{StaticResource ThemeMainColor}">
+                        <Border Grid.Row="1" Margin="20 10" VerticalAlignment="Bottom" CornerRadius="10" Padding="10" Background="{DynamicResource SeaGreen}">
                             <StackPanel>
+                                
+                                <TextBox Margin="10 10 10 5" Style="{DynamicResource AgencyTextBox}" Tag="Прізвище (латинкою)" x:Name="regSurnameBox"/>
+                                <TextBox Margin="10 5 10 5" Style="{DynamicResource AgencyTextBox}" Tag="Ім'я (латинкою)" x:Name="regNameBox"/>
+                                <TextBox Margin="10 5 10 5" Style="{DynamicResource AgencyTextBox}" Tag="Електронна пошта" x:Name="regEmailBox"/>
+                                <TextBox Margin="10 5 10 5" Style="{DynamicResource AgencyTextBox}" Tag="Пароль" x:Name="regPassBox"/>
+                                <TextBox Margin="10 5 10 5" Style="{DynamicResource AgencyTextBox}" Tag="Повторіть пароль" x:Name="regRepeatPassBox"/>
 
-                                <Grid Margin="10 10 10 5">
-                                    <TextBox Style="{StaticResource CustomTextBox}"
-                                         x:Name="regSurnameBox"/>
-                                    <TextBlock Text="Прізвище (латинкою)"
-                                           VerticalAlignment="Center"
-                                           Margin="6.5 0 0 0"
-                                           Foreground="#777777">
-                                        <TextBlock.Style>
-                                            <Style TargetType="{x:Type TextBlock}">
-                                                <Setter Property="Visibility" Value="Collapsed"/>
-                                                <Setter Property="IsHitTestVisible" Value="False"/>
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding Text, ElementName=regSurnameBox}" Value="">
-                                                        <Setter Property="Visibility" Value="Visible"/>
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </TextBlock.Style>
-                                    </TextBlock>
-                                </Grid>
-
-                                <Grid Margin="10 5 10 5">
-                                    <TextBox Style="{StaticResource CustomTextBox}"
-                                         x:Name="regNameBox"/>
-                                    <TextBlock Text="Ім'я (латинкою)"
-                                           VerticalAlignment="Center"
-                                           Margin="6.5 0 0 0"
-                                           Foreground="#777777">
-                                        <TextBlock.Style>
-                                            <Style TargetType="{x:Type TextBlock}">
-                                                <Setter Property="Visibility" Value="Collapsed"/>
-                                                <Setter Property="IsHitTestVisible" Value="False"/>
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding Text, ElementName=regNameBox}" Value="">
-                                                        <Setter Property="Visibility" Value="Visible"/>
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </TextBlock.Style>
-                                    </TextBlock>
-                                </Grid>
-
-                                <Grid Margin="10 5 10 5">
-                                    <TextBox Style="{StaticResource CustomTextBox}"
-                                         x:Name="regEmailBox"/>
-                                    <TextBlock Text="Електронна пошта"
-                                           VerticalAlignment="Center"
-                                           Margin="6.5 0 0 0"
-                                           Foreground="#777777">
-                                        <TextBlock.Style>
-                                            <Style TargetType="{x:Type TextBlock}">
-                                                <Setter Property="Visibility" Value="Collapsed"/>
-                                                <Setter Property="IsHitTestVisible" Value="False"/>
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding Text, ElementName=regEmailBox}" Value="">
-                                                        <Setter Property="Visibility" Value="Visible"/>
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </TextBlock.Style>
-                                    </TextBlock>
-                                </Grid>
-
-                                <Grid Margin="10 5 10 5">
-                                    <PasswordBox Style="{StaticResource CustomPasswordBox}"
-                                             x:Name="regPassBox"/>
-                                    <TextBlock Text="Пароль"
-                                           VerticalAlignment="Center"
-                                           Margin="6.5 0 0 0"
-                                           Foreground="#777777">
-                                        <TextBlock.Style>
-                                            <Style TargetType="{x:Type TextBlock}">
-                                                <Setter Property="Visibility" Value="Collapsed"/>
-                                                <Setter Property="IsHitTestVisible" Value="False"/>
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding Password, ElementName=regPassBox}" Value="">
-                                                        <Setter Property="Visibility" Value="Visible"/>
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </TextBlock.Style>
-                                    </TextBlock>
-                                </Grid>
-
-                                <Grid Margin="10 5 10 10">
-                                    <PasswordBox Style="{StaticResource CustomPasswordBox}"
-                                             x:Name="regRepeatPassBox"/>
-                                    <TextBlock Text="Повторіть пароль"
-                                           VerticalAlignment="Center"
-                                           Margin="6.5 0 0 0"
-                                           Foreground="#777777">
-                                        <TextBlock.Style>
-                                            <Style TargetType="{x:Type TextBlock}">
-                                                <Setter Property="Visibility" Value="Collapsed"/>
-                                                <Setter Property="IsHitTestVisible" Value="False"/>
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding Password, ElementName=regRepeatPassBox}" Value="">
-                                                        <Setter Property="Visibility" Value="Visible"/>
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </TextBlock.Style>
-                                    </TextBlock>
-                                </Grid>
-
-                                <Button Content="Зареєструватися" Style="{StaticResource Control}" 
-                                    Height="30" Margin="10" Click="OnRegistration"/>
-
-                                <Button Click="LogOnOpen">
-                                    <Button.Style>
-                                        <Style TargetType="{x:Type Button}">
-                                            <Setter Property="Background" Value="Transparent"/>
-                                            <Setter Property="Foreground" Value="{StaticResource ThemeSecondaryColor}"/>
-                                            <Setter Property="BorderThickness" Value="0"/>
-                                            <Setter Property="Template">
-                                                <Setter.Value>
-                                                    <ControlTemplate TargetType="{x:Type Button}">
-                                                        <Border Background="Transparent">
-                                                            <TextBlock Text="Вже маєте акаунт?" IsHitTestVisible="False"
-                                                                   HorizontalAlignment="Center"
-                                                                   Foreground="{TemplateBinding Foreground}"/>
-                                                        </Border>
-                                                    </ControlTemplate>
-                                                </Setter.Value>
-                                            </Setter>
-                                            <Style.Triggers>
-                                                <Trigger Property="IsMouseOver" Value="True">
-                                                    <Setter Property="Background" Value="Transparent"/>
-                                                    <Setter Property="Foreground" Value="{StaticResource ThemeSecondaryLightColor}"/>
-                                                </Trigger>
-                                                <Trigger Property="IsPressed" Value="True">
-                                                    <Setter Property="Background" Value="Transparent"/>
-                                                    <Setter Property="Foreground" Value="{StaticResource ThemeSecondaryDarkColor}"/>
-                                                </Trigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </Button.Style>
-                                </Button>
+                                <Button Content="Зареєструватися" Style="{DynamicResource Control}" Height="30" Margin="10" Click="OnRegistration"/>
+                                <Button Click="LogOnOpen" Style="{DynamicResource TextButton}" Tag="Вже маєте акаунт?"/>
 
                             </StackPanel>
                         </Border>
@@ -619,19 +243,19 @@
             </Border>
             <!--#endregion-->
 
-            <local:ClippingBorder x:Name="userOrdersPanel" Visibility="Collapsed" Grid.Row="1" CornerRadius="10" Width="800" Height="600" Background="{StaticResource ThemeSecondaryColor}">
+            <local:ClippingBorder x:Name="userOrdersPanel" Visibility="Collapsed" Grid.Row="1" CornerRadius="10" Width="800" Height="600" Background="{DynamicResource AlmostWhite}">
                 <local:ClippingBorder.Effect>
                     <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity=".5"/>
                 </local:ClippingBorder.Effect>
 
                 <StackPanel>
                     <Grid>
-                        <TextBlock Text="Мої бронювання" FontSize="16" FontWeight="Bold" Foreground="{StaticResource ThemeMainColor}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <Button Click="UserOrdersCloseClick" HorizontalAlignment="Right" Content="X" Style="{StaticResource MainControl}" Template="{DynamicResource SubCloseButton}"/>
+                        <TextBlock Text="Мої бронювання" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource SeaGreen}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <Button Click="UserOrdersCloseClick" HorizontalAlignment="Right" Content="X" Style="{DynamicResource MainControl}" Template="{DynamicResource SubCloseButton}"/>
                     </Grid>
 
                     <StackPanel>
-                        <DataGrid Padding="10" Style="{StaticResource ModifiedDataGrid}" CellStyle="{StaticResource ModifiedGridCell}" RowStyle="{StaticResource ModifiedGridRow}" ColumnHeaderStyle="{StaticResource ModifiedGridColumnHeader}" x:Name="userOrders">
+                        <DataGrid Padding="10" Style="{DynamicResource ModifiedDataGrid}" CellStyle="{DynamicResource ModifiedGridCell}" RowStyle="{DynamicResource ModifiedGridRow}" ColumnHeaderStyle="{DynamicResource ModifiedGridColumnHeader}" x:Name="userOrders">
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn Width="15" Header="C">
                                     <DataGridTemplateColumn.CellTemplate>
@@ -639,7 +263,7 @@
                                             <Border CornerRadius="5" Width="10" Height="30" Tag="{Binding Status,  Converter={StaticResource EnumToStringConverter}}" HorizontalAlignment="Center">
                                                 <Border.Style>
                                                     <Style TargetType="{x:Type Border}">
-                                                        <Setter Property="Background" Value="{StaticResource ThemeSecondaryColor}"/>
+                                                        <Setter Property="Background" Value="{DynamicResource LightGray}"/>
                                                         <Style.Triggers>
                                                             <Trigger Property="Tag" Value="Actual">
                                                                 <Setter Property="Background" Value="RoyalBlue"/>
@@ -651,7 +275,7 @@
                                                                 <Setter Property="Background" Value="IndianRed"/>
                                                             </Trigger>
                                                             <Trigger Property="Tag" Value="Canceled">
-                                                                <Setter Property="Background" Value="Gray"/>
+                                                                <Setter Property="Background" Value="LightGray"/>
                                                             </Trigger>
                                                         </Style.Triggers>
                                                     </Style>
@@ -702,17 +326,17 @@
                 </StackPanel>
             </local:ClippingBorder>
 
-            <ListView x:Name="userPanel" Visibility="Collapsed" Grid.RowSpan="2" MaxHeight="100" Width="170" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="120 50" Style="{StaticResource UserListView}" ItemContainerStyle="{StaticResource UserItemContainer}">
+            <ListView x:Name="userPanel" Visibility="Collapsed" Grid.RowSpan="2" MaxHeight="100" Width="170" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="120 50" Style="{DynamicResource UserListView}" ItemContainerStyle="{DynamicResource UserItemContainer}">
                 <ListViewItem x:Name="userOrdersButton" Tag="Мої бронювання" Selected="UserOrdersClick"/>
                 <ListViewItem x:Name="adminToolButton" Tag="Панель адміністратора" Selected="AdminToolOnLoad"/>
                 <ListViewItem x:Name="logOutButton" Tag="Вихід" Selected="LogOut"/>
             </ListView>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10 0">
-                <Button Content="—" Style="{StaticResource MainControl}" Template="{DynamicResource MinButton}" Click="OnMinimize"/>
-                <Button Content="X" Style="{StaticResource MainControl}" Template="{DynamicResource CloseButton}" Click="OnClose"/>
+                <Button Content="—" Style="{DynamicResource MainControl}" Template="{DynamicResource MinButton}" Click="OnMinimize"/>
+                <Button Content="X" Style="{DynamicResource MainControl}" Template="{DynamicResource CloseButton}" Click="OnClose"/>
             </StackPanel>
-            
+
         </Grid>
     </Border>
 </Window>

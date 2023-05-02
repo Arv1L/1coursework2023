@@ -7,7 +7,7 @@ namespace TourAgency
     {
         public RegisteredUser(string email, string name, string password) : base(email, name, password)
         {
-            Status= UserStatus.RegisteredUser;
+            Status = UserStatus.RegisteredUser;
         }
 
         public override bool OrderTour(Tour tour, int ticketsNumber, out Order order)

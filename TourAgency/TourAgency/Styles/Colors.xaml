@@ -5,8 +5,8 @@
     <SolidColorBrush x:Key="SeaGreen" Color="#37C386"/>
     <SolidColorBrush x:Key="Green" Color="#00A25E"/>
 
-    <SolidColorBrush x:Key="AlmostWhite" Color="#F2F2F2"/>
-    <SolidColorBrush x:Key="LightGray" Color="#EEEEEE"/>
+    <SolidColorBrush x:Key="AlmostWhite" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="LightGray" Color="#FEFEFE"/>
     <SolidColorBrush x:Key="PaleGray" Color="#E6E6E6"/>
 
     <SolidColorBrush x:Key="Gray" Color="#777777 "/>

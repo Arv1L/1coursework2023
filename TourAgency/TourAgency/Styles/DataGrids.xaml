@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style x:Key="ModifiedDataGrid" TargetType="{x:Type DataGrid}">
-        <Setter Property="Background" Value="{DynamicResource AlmostWhite}"/>
+        <Setter Property="Background" Value="{DynamicResource LightGray}"/>
         <Setter Property="Foreground" Value="{DynamicResource AlmostBlack}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected"/>
@@ -52,7 +52,7 @@
 
     <Style x:Key="ModifiedGridColumnHeader" TargetType="{x:Type DataGridColumnHeader}">
         <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Background" Value="{DynamicResource AlmostWhite}"/>
+        <Setter Property="Background" Value="{DynamicResource LightGray}"/>
         <Setter Property="Foreground" Value="{DynamicResource DarkGray}"/>
         <Setter Property="FontWeight" Value="DemiBold"/>
         <Setter Property="FontSize" Value="12"/>

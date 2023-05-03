@@ -243,6 +243,7 @@
             </Border>
             <!--#endregion-->
 
+            <!--#region Вікно бронювань-->
             <local:ClippingBorder x:Name="userOrdersPanel" Visibility="Collapsed" Grid.Row="1" CornerRadius="10" Width="800" Height="600" Background="{DynamicResource AlmostWhite}">
                 <local:ClippingBorder.Effect>
                     <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity=".5"/>
@@ -325,17 +326,22 @@
                     </StackPanel>
                 </StackPanel>
             </local:ClippingBorder>
+            <!--#endregion-->
 
+            <!--#region Меню користувача-->
             <ListView x:Name="userPanel" Visibility="Collapsed" Grid.RowSpan="2" MaxHeight="100" Width="170" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="120 50" Style="{DynamicResource UserListView}" ItemContainerStyle="{DynamicResource UserItemContainer}">
                 <ListViewItem x:Name="userOrdersButton" Tag="Мої бронювання" Selected="UserOrdersClick"/>
                 <ListViewItem x:Name="adminToolButton" Tag="Панель адміністратора" Selected="AdminToolOnLoad"/>
                 <ListViewItem x:Name="logOutButton" Tag="Вихід" Selected="LogOut"/>
             </ListView>
+            <!--#endregion-->
 
+            <!--#region Кнопки згортання і закриття програми-->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10 0">
                 <Button Content="—" Style="{DynamicResource MainControl}" Template="{DynamicResource MinButton}" Click="OnMinimize"/>
                 <Button Content="X" Style="{DynamicResource MainControl}" Template="{DynamicResource CloseButton}" Click="OnClose"/>
             </StackPanel>
+            <!--#endregion-->
 
         </Grid>
     </Border>

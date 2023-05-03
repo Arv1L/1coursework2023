@@ -34,15 +34,11 @@ D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\bin\Debug\net7.0-wi
 D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\bin\Debug\net7.0-windows\MahApps.Metro.IconPacks.Core.dll
 D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\bin\Debug\net7.0-windows\MahApps.Metro.IconPacks.Material.dll
 D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Debug\net7.0-windows\TourAgency.csproj.AssemblyReference.cache
-D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Debug\net7.0-windows\AdminWindow.g.cs
-D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Debug\net7.0-windows\MainWindow.g.cs
 D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Debug\net7.0-windows\App.g.cs
 D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Debug\net7.0-windows\GeneratedInternalTypeHelper.g.cs
 D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Debug\net7.0-windows\TourAgency_MarkupCompile.cache
 D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Debug\net7.0-windows\TourAgency_MarkupCompile.lref
 D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Debug\net7.0-windows\App.baml
-D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Debug\net7.0-windows\AdminWindow.baml
-D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Debug\net7.0-windows\MainWindow.baml
 D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Debug\net7.0-windows\TourAgency.g.resources
 D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Debug\net7.0-windows\TourAgency.GeneratedMSBuildEditorConfig.editorconfig
 D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Debug\net7.0-windows\TourAgency.AssemblyInfoInputs.cache
@@ -62,3 +58,7 @@ D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Debug\net7.0-wi
 D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Debug\net7.0-windows\Styles\Windows.baml
 D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Debug\net7.0-windows\Styles\Converters.baml
 D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Debug\net7.0-windows\Styles\ListViewes.baml
+D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Debug\net7.0-windows\Windows\AdminWindow.g.cs
+D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Debug\net7.0-windows\Windows\MainWindow.g.cs
+D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Debug\net7.0-windows\Windows\AdminWindow.baml
+D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Debug\net7.0-windows\Windows\MainWindow.baml

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\App.xaml
-10-1435366530
+101086896778
 
-221023640641
+22-1037482935
 200-1174872846
-AdminWindow.xaml;MainWindow.xaml;Styles\Buttons.xaml;Styles\Colors.xaml;Styles\Converters.xaml;Styles\DataGrids.xaml;Styles\ListViewes.xaml;Styles\Text.xaml;Styles\TextBoxes.xaml;Styles\Windows.xaml;
+Styles\Buttons.xaml;Styles\Colors.xaml;Styles\Converters.xaml;Styles\DataGrids.xaml;Styles\ListViewes.xaml;Styles\Text.xaml;Styles\TextBoxes.xaml;Styles\Windows.xaml;Windows\AdminWindow.xaml;Windows\MainWindow.xaml;
 
 True
 

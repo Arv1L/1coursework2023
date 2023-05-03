@@ -29,14 +29,6 @@ namespace TourAgency
             adminWindow.TourItemsSourceUpdated += ItemsSourceUpdated;
         }
 
-        private void SortList()
-        {
-            var collectionView = new ListCollectionView(Agency.Instance.Tours);
-            collectionView.SortDescriptions.Add(new SortDescription("Country", ListSortDirection.Ascending));
-            collectionView.SortDescriptions.Add(new SortDescription("City", ListSortDirection.Ascending));
-            tourList.ItemsSource = collectionView;
-        }
-
         #region UserPanel
         private void UserButtonClick(object sender, RoutedEventArgs e)
         {
@@ -94,7 +86,7 @@ namespace TourAgency
             if (userOrders.ItemsSource != null)
                 ordersAreEmpty.Visibility = Visibility.Collapsed;
             else
-                userOrders.Visibility = Visibility.Visible;
+                ordersAreEmpty.Visibility = Visibility.Visible;
         }
 
         private void LogOut(object sender, RoutedEventArgs e)
@@ -111,6 +103,9 @@ namespace TourAgency
         }
         #endregion
 
+
+
+        #region Tour manipulations
         private void SearchChanged(object sender, TextChangedEventArgs e)
         {
             string str = searchBox.Text.Trim();
@@ -118,7 +113,14 @@ namespace TourAgency
             tourList.ItemsSource = books;
         }
 
-        #region Tour manipulations
+        private void SortList()
+        {
+            var collectionView = new ListCollectionView(Agency.Instance.Tours);
+            collectionView.SortDescriptions.Add(new SortDescription("Country", ListSortDirection.Ascending));
+            collectionView.SortDescriptions.Add(new SortDescription("City", ListSortDirection.Ascending));
+            tourList.ItemsSource = collectionView;
+        }
+
         private void TourChanged(object sender, SelectionChangedEventArgs e)
         {
             Tour? tour = Agency.Instance.CurrentTour = tourList.SelectedItem as Tour;
@@ -194,6 +196,7 @@ namespace TourAgency
                 OrderItemsSourceUpdated?.Invoke(this, new ItemsSourceEventArgs { ItemsSource = Agency.Instance.Orders });
 
                 confirmOrder.Visibility = Visibility.Collapsed;
+                tourCurrentTicketNumber.Text = "";
             }
         }
 
@@ -205,6 +208,8 @@ namespace TourAgency
             }
         }
         #endregion
+
+
 
         #region Login methods
         private void OnLogin(object sender, RoutedEventArgs e)
@@ -244,6 +249,8 @@ namespace TourAgency
 
         private void LoginOnClose(object sender, RoutedEventArgs e) => loginForm.Visibility = Visibility.Collapsed;
         #endregion
+
+
 
         #region Registration methods
         private void OnRegistration(object sender, RoutedEventArgs e)
@@ -290,6 +297,8 @@ namespace TourAgency
         private void RegOnClose(object sender, RoutedEventArgs e) => regForm.Visibility = Visibility.Collapsed;
         #endregion
 
+
+
         #region Events
         public event EventHandler<ItemsSourceEventArgs>? OrderItemsSourceUpdated;
 
@@ -301,24 +310,9 @@ namespace TourAgency
         }
         #endregion
 
-        #region Drag, Minimize, Close
-        private void DragWindow(object sender, MouseButtonEventArgs e) => DragMove();
 
-        private void OnMinimize(object sender, RoutedEventArgs e) => WindowState = WindowState.Minimized;
 
-        private void OnClose(object sender, RoutedEventArgs e)
-        {
-            Agency.Instance.SaveAgency();
-            adminWindow.Close();
-            Application.Current.Shutdown();
-        }
-        #endregion
-
-        private void UserOrdersCloseClick(object sender, RoutedEventArgs e)
-        {
-            userOrdersPanel.Visibility = Visibility.Collapsed;
-        }
-
+        #region Order manipulations
         private void CancelOrder(object sender, RoutedEventArgs e)
         {
             Button? button = sender as Button;
@@ -336,9 +330,6 @@ namespace TourAgency
                         {
                             Agency.Instance.CancelOrder(order.Id);
 
-                            //userOrders.Items.Remove(order);
-                            //userOrders.ItemsSource = null;
-                            //userOrders.ItemsSource = Agency.Instance.Orders.Where(o => o.Id == order.Id).ToList();
                             userOrders.Items.Refresh();
 
                             SortList();
@@ -352,5 +343,23 @@ namespace TourAgency
                         MessageBox.Show("Тур вже відбувся / відбувається");
             }
         }
+
+        private void UserOrdersCloseClick(object sender, RoutedEventArgs e) => userOrdersPanel.Visibility = Visibility.Collapsed;
+        #endregion
+
+
+
+        #region Drag, Minimize, Close
+        private void DragWindow(object sender, MouseButtonEventArgs e) => DragMove();
+
+        private void OnMinimize(object sender, RoutedEventArgs e) => WindowState = WindowState.Minimized;
+
+        private void OnClose(object sender, RoutedEventArgs e)
+        {
+            Agency.Instance.SaveAgency();
+            adminWindow.Close();
+            Application.Current.Shutdown();
+        }
+        #endregion
     }
 }

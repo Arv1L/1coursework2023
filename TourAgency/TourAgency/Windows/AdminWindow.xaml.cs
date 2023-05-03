@@ -105,6 +105,18 @@ namespace TourAgency
             }
         }
 
+        private void EditClose(object sender, RoutedEventArgs e)
+        {
+            editCurrentTour.Visibility = Visibility.Collapsed;
+            editCountryBox.Text = string.Empty;
+            editNameBox.Text = string.Empty;
+            editDateBox.Text = string.Empty;
+            editDurationBox.Text = string.Empty;
+            editPriceBox.Text = string.Empty;
+            editTicketCountBox.Text = string.Empty;
+            editDescriptionBox.Text = string.Empty;
+        }
+
         private void RemoveClick(object sender, RoutedEventArgs e)
         {
             currentTour = tourList.SelectedItem as Tour;
@@ -116,6 +128,8 @@ namespace TourAgency
             else MessageBox.Show("Невдалось видалити тур");
         }
         #endregion
+
+
 
         #region Refresh lists
         public void RefreshTourList()
@@ -149,11 +163,15 @@ namespace TourAgency
         }
         #endregion
 
+
+
         #region Events
         public event EventHandler<ItemsSourceEventArgs>? TourItemsSourceUpdated;
 
         private void ItemsSourceUpdated(object? sender, ItemsSourceEventArgs e) => RefreshOrderList();
         #endregion
+
+
 
         #region Drag, Minimize, Close
         private void DragWindow(object sender, MouseButtonEventArgs e) => DragMove();
@@ -162,17 +180,5 @@ namespace TourAgency
 
         private void OnClose(object sender, RoutedEventArgs e) => Hide();
         #endregion
-
-        private void EditClose(object sender, RoutedEventArgs e)
-        {
-            editCurrentTour.Visibility = Visibility.Collapsed;
-            editCountryBox.Text = string.Empty;
-            editNameBox.Text = string.Empty;
-            editDateBox.Text = string.Empty;
-            editDurationBox.Text = string.Empty;
-            editPriceBox.Text = string.Empty;
-            editTicketCountBox.Text = string.Empty;
-            editDescriptionBox.Text = string.Empty;
-        }
     }
 }

@@ -167,7 +167,7 @@
 
                                         <TextBox x:Name="editTicketCountBox" Style="{DynamicResource AgencyTextBox}" Margin="0 10" Tag="Кількість квитків"/>
                                         
-                                        <TextBox x:Name="editDescriptionBox" TextWrapping="Wrap" Padding="5" AcceptsReturn="True" Height="100" VerticalAlignment="Top" 
+                                        <TextBox x:Name="editDescriptionBox" TextWrapping="Wrap" Padding="5" AcceptsReturn="True" Height="120" VerticalAlignment="Top" 
                                                  VerticalContentAlignment="Top" Style="{DynamicResource AgencyTextBox}" Margin="0 10" Tag="Опис"/>
 
                                         <Button Click="EditCurrentTour" Content="Зберегти" Margin="0 20 0 10" Style="{DynamicResource Control}" Height="40"/>

@@ -49,10 +49,10 @@ namespace TourAgency
                     string name = nameBox.Text;
                     string description = descriptionBox.Text;
 
-                    if (Agency.Instance.AddTour(country, name, date, duration, price, ticketCount, description))
+                    if (Agency.Instance.AddTour(country, name, date, duration, price, ticketCount, description, out string message))
                         countryBox.Text = nameBox.Text = descriptionBox.Text = durationBox.Text = priceBox.Text = dateBox.Text = ticketCountBox.Text = "";
                     else
-                        MessageBox.Show("Занадто близька дата!");
+                        MessageBox.Show(message);
 
                     RefreshTourList();
 
@@ -78,12 +78,13 @@ namespace TourAgency
                 currentTour.Duration = duration;
                 currentTour.Date = date;
                 currentTour.Description = editDescriptionBox.Text;
-
-                List<Tour> tours = Agency.Instance.Tours;
-                Agency.Instance.Tours[tours.IndexOf(tours.First(t => t.Id == currentTour.Id))] = currentTour;
+                
+                if (Agency.Instance.EditTour(currentTour, out string message))
+                    RefreshTourList();
+                else 
+                    MessageBox.Show(message);
 
                 editCurrentTour.Visibility = Visibility.Collapsed;
-                RefreshTourList();
             }
         }
 
@@ -120,12 +121,12 @@ namespace TourAgency
         private void RemoveClick(object sender, RoutedEventArgs e)
         {
             currentTour = tourList.SelectedItem as Tour;
-            if (Agency.Instance.RemoveATour(currentTour))
+            if (Agency.Instance.RemoveATour(currentTour, out string message))
             {
                 RefreshTourList();
                 currentTour = null;
             }
-            else MessageBox.Show("Невдалось видалити тур");
+            else MessageBox.Show(message);
         }
         #endregion
 

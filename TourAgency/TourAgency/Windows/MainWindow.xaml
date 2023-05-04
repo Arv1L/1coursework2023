@@ -244,7 +244,7 @@
             <!--#endregion-->
 
             <!--#region Вікно бронювань-->
-            <local:ClippingBorder x:Name="userOrdersPanel" Visibility="Collapsed" Grid.Row="1" CornerRadius="10" Width="800" Height="600" Background="{DynamicResource AlmostWhite}">
+            <local:ClippingBorder x:Name="userOrdersPanel" Visibility="Collapsed" Grid.Row="1" CornerRadius="10" Width="800" Height="600" Background="{DynamicResource LightGray}">
                 <local:ClippingBorder.Effect>
                     <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity=".5"/>
                 </local:ClippingBorder.Effect>

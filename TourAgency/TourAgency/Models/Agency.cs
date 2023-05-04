@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
+using System.Windows.Input;
 
 namespace TourAgency.Models
 {
@@ -38,8 +40,10 @@ namespace TourAgency.Models
         }
 
         #region Tour manipulations
-        public bool AddTour(string country, string city, DateTime date, int duration, float price, int ticketsNumber, string description)
+        public bool AddTour(string country, string city, DateTime date, int duration, float price, int ticketsNumber, string description, out string message)
         {
+            message = string.Empty;
+
             if (date >= DateTime.Now.AddDays(30))
             {
                 Tour tour = new(country, city, date, duration, price, TourStatus.Actual, ticketsNumber, description);
@@ -51,8 +55,16 @@ namespace TourAgency.Models
 
                 return true;
             }
-
-            return false;
+            else if (date < DateTime.Now)
+            {
+                message = "Введіть коректну дату!";
+                return false;
+            }
+            else
+            {
+                message = "Не можна додати тур, який відбудиться раніше, ніж через 30 днів!";
+                return false;
+            }
         }
 
         public string OrderATour(int ticketNumber)
@@ -75,12 +87,11 @@ namespace TourAgency.Models
 
                             message = $"Номер замовлення: {order.Id}\n" +
                                       $"Тур: {order.City}\n" +
-                                      $"Ціна: {Math.Round(order.Price * order.TicketNumber, 2)} ₴\n" +
+                                      $"Ціна: {order.Price} ₴\n" +
                                       $"Куплено квитків: {order.TicketNumber}\n" +
                                       $"Дата відправлення: {order.Date.ToShortDateString()}\n" +
                                       $"Тривалість туру: {order.Duration}\n" +
-                                      $"Статус туру: {order.Status}\n" +
-                                      $"\n{order.UserName}" +
+                                      $"\n{order.UserName}\n" +
                                       "Замовлення оформлене";
                         }
                         else
@@ -98,15 +109,70 @@ namespace TourAgency.Models
             return message;
         }
 
-        public bool RemoveATour(Tour? tour)
+        public bool EditTour(Tour? tour, out string message)
         {
-            if (tour != null && !Orders.Any(o => o.TourId == tour.Id && o.Status != OrderStatus.Canceled))
+            message = string.Empty;
+
+            if (tour != null)
             {
-                Tours.Where(t => t.Id == tour.Id).First().Status = TourStatus.Canceled;
-                SaveTours();
-                return true;
+                if (tour.Date >= DateTime.Now)
+                {
+                    if (!Orders.Any(o => o.TourId == tour.Id && o.Status != OrderStatus.Canceled))
+                    {
+                        CurrentTour = tour;
+                        Tours[Tours.IndexOf(Tours.First(t => t.Id == tour.Id))] = tour;
+                        return true;
+                    }
+                    else
+                    {
+                        message = "Тур не може бути редагований! На тур вже є заброньовані квитки!";
+                        return false;
+                    }
+                }
+                else
+                {
+                    message = "Тур не може бути редагований! Тур відбувся!";
+                    return false;
+                }
             }
-            else return false;
+            else
+            {
+                message = "Тур не обраний!";
+                return false;
+            }
+        }
+
+        public bool RemoveATour(Tour? tour, out string message)
+        {
+            message = string.Empty;
+
+            if (tour != null)
+            {
+                if (!Orders.Any(o => o.TourId == tour.Id && o.Status != OrderStatus.Canceled))
+                {
+                    if (DateTime.Now < tour.Date)
+                    {
+                        Tours.Where(t => t.Id == tour.Id).First().Status = TourStatus.Canceled;
+                        SaveTours();
+                        return true;
+                    }
+                    else
+                    {
+                        message = "Тур не може бути видалений! Тур вже відбувся!";
+                        return false;
+                    }
+                }
+                else
+                {
+                    message = "Тур не може бути видалений! На тур вже є заброньовані квитки!";
+                    return false;
+                }
+            }
+            else
+            {
+                message = "Тур не обраний!";
+                return false;
+            }
         }
         #endregion
 
@@ -142,17 +208,39 @@ namespace TourAgency.Models
             }
         }
 
-        public bool AddUser(string email, string name, string password)
+        public bool AddUser(string email, string name, string password, out string message)
         {
+            message = string.Empty;
+
             User user = new RegisteredUser(email, name, password);
 
             if (Users.FirstOrDefault(u => u.Email == user.Email) == null)
             {
-                Users.Add(user);
-                SaveUsers();
-                return true;
+                if (email.Contains('@'))
+                {
+                    if (password.Length >= 8)
+                    {
+                        Users.Add(user);
+                        SaveUsers();
+                        return true;
+                    }
+                    else
+                    {
+                        message = "Пароль не надійний!";
+                        return false;
+                    }
+                }
+                else
+                {
+                    message = "Неправильний формат пошти!";
+                    return false;
+                }
             }
-            return false;
+            else
+            {
+                message = "Такий користувач вже існує!";
+                return false;
+            }
         }
         #endregion
 

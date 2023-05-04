@@ -45,7 +45,7 @@
     "TicketNumber": 5,
     "Date": "2023-07-05T00:00:00",
     "Duration": 7,
-    "Status": 1
+    "Status": 0
   },
   {
     "Id": 4,
@@ -82,5 +82,17 @@
     "Date": "2023-07-05T00:00:00",
     "Duration": 7,
     "Status": 1
+  },
+  {
+    "Id": 7,
+    "UserId": 3,
+    "TourId": 2,
+    "UserName": "Name User",
+    "City": "Харків",
+    "Price": 1999.98,
+    "TicketNumber": 2,
+    "Date": "2023-07-21T00:00:00",
+    "Duration": 7,
+    "Status": 3
   }
 ]

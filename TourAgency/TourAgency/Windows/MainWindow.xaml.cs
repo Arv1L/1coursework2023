@@ -153,10 +153,12 @@ namespace TourAgency
                 }
 
                 if (Agency.Instance.CurrentUser != null && Agency.Instance.CurrentUser.Status == UserStatus.RegisteredUser)
-                    if (tour.Status == TourStatus.Actual)
+                    if (tour.Date > DateTime.Now)
                     {
                         if (tour.CurrentTicketsNumber > 0)
                             orderButton.IsEnabled = true;
+                        else
+                            orderButton.IsEnabled = false;
                     }
                     else
                         orderButton.IsEnabled = false;
@@ -257,34 +259,31 @@ namespace TourAgency
         {
             if (regEmailBox.Text != null && regNameBox.Text != null && regSurnameBox.Text != null && regPassBox.Text != null && regRepeatPassBox.Text != null)
             {
-                if (regEmailBox.Text.Contains("@"))
+                string email = logEmailBox.Text = regEmailBox.Text;
+                string name = $"{regNameBox.Text} {regSurnameBox.Text}";
+
+                if (regPassBox.Text == regRepeatPassBox.Text)
                 {
-                    string email = logEmailBox.Text = regEmailBox.Text;
-                    string name = $"{regNameBox.Text} {regSurnameBox.Text}";
-                    if (regPassBox.Text == regRepeatPassBox.Text)
-                        if (regPassBox.Text.Length >= 8)
-                        {
-                            string pass = logPassBox.Text = regPassBox.Text;
+                    string pass = logPassBox.Text = regPassBox.Text;
 
-                            if (Agency.Instance.AddUser(email, name, pass))
-                            {
-                                regEmailBox.Text = null;
-                                regNameBox.Text = null;
-                                regSurnameBox.Text = null;
-                                regPassBox.Text = null;
-                                regRepeatPassBox.Text = null;
+                    if (Agency.Instance.AddUser(email, name, pass, out string message))
+                    {
+                        regEmailBox.Text = null;
+                        regNameBox.Text = null;
+                        regSurnameBox.Text = null;
+                        regPassBox.Text = null;
+                        regRepeatPassBox.Text = null;
 
-                                regForm.Visibility = Visibility.Collapsed;
-                                ToLogin();
-                            }
-                        }
-                        else
-                            MessageBox.Show("Пароль закороткий");
+                        regForm.Visibility = Visibility.Collapsed;
+                        ToLogin();
+                    }
                     else
-                        MessageBox.Show("Паролі не співпадають");
+                    {
+                        MessageBox.Show(message);
+                    }
                 }
                 else
-                    MessageBox.Show("Неправильний формат пошти");
+                    MessageBox.Show("Паролі не співпадають!");
             }
         }
 

@@ -1,7 +1,7 @@
 [
   {
     "Id": 0,
-    "Email": "admin@gmail.com",
+    "Email": "admin@example.com",
     "Name": "Volodymyr Kibets",
     "Password": "1q2w3e4r",
     "Status": 0

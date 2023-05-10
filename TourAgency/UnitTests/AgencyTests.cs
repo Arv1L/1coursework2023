@@ -1,6 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using TourAgency;
+﻿using TourAgency;
 using TourAgency.Models;
 
 namespace UnitTests

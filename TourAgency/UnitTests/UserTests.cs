@@ -60,7 +60,7 @@ namespace UnitTests
         [TestMethod]
         public void ReturnTickets_WithInvalidOrderId_ReturnsFalse()
         {
-            //// Arrange
+            // Arrange
             var travelAgency = Agency.Instance;
             var tour = new Tour("France", "Paris", DateTime.Now.AddDays(7), 7, 1000, TourStatus.Actual, 20, "Explore the City of Love");
             User user = new RegisteredUser("Email", "Name", "Password");
@@ -73,7 +73,7 @@ namespace UnitTests
             bool result = user.ReturnTickets(orderId, travelAgency.Orders, out int index, out int ticketsReturned);
 
             // Assert
-            //Assert.IsFalse(result);
+            Assert.IsFalse(result);
             Assert.AreEqual(-1, index);
             Assert.AreEqual(0, ticketsReturned);
         }

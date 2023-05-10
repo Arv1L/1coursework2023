@@ -1,2 +1,26 @@
-{"Email":"test@example.com","Name":"Test User","Password":"password","Status":1}
-{"Email":"test1@example.com","Name":"Test User","Password":"password","Status":1}
+[
+  {
+    "Id": 2,
+    "Country": "France",
+    "City": "Paris",
+    "Date": "2023-06-28T22:48:18.8515667+03:00",
+    "Duration": 7,
+    "Price": 1000,
+    "Status": 0,
+    "MaxTicketsNumber": 20,
+    "CurrentTicketsNumber": 20,
+    "Description": "Explore the City of Love"
+  },
+  {
+    "Id": 1,
+    "Country": "France2",
+    "City": "Paris2",
+    "Date": "2023-06-28T22:48:18.8515667+03:00",
+    "Duration": 14,
+    "Price": 1000,
+    "Status": 0,
+    "MaxTicketsNumber": 20,
+    "CurrentTicketsNumber": 20,
+    "Description": "Explore the City of Love"
+  }
+]

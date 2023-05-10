@@ -63,7 +63,7 @@ namespace TourAgency
             index = -1;
             ticketsReturned = 0;
 
-            Order? order = orders.Where(o => o.Id == orderId).First();
+            Order? order = orders.Where(o => o.Id == orderId).FirstOrDefault();
 
             if (order != null && order.CancelOrder())
             {

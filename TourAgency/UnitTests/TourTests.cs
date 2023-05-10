@@ -37,8 +37,8 @@ namespace UnitTests
         public void CompareTo_WithNonNullOther_ReturnsExpectedValue()
         {
             // Arrange
-            Tour tour1 = new Tour(0, "USA", "City", DateTime.Parse("10.07.2023"), 10, 999, TourStatus.Actual, 30, 2, "Description");
-            Tour tour2 = new Tour(0, "Canada", "City", DateTime.Parse("10.07.2023"), 10, 999, TourStatus.Actual, 30, 2, "Description");
+            Tour tour1 = new Tour(3, "Canada", "City", DateTime.Parse("10.07.2023"), 10, 999, TourStatus.Actual, 30, 2, "Description");
+            Tour tour2 = new Tour(1, "USA", "City", DateTime.Parse("10.07.2023"), 10, 999, TourStatus.Actual, 30, 2, "Description");
 
             // Act
             int result = tour1.CompareTo(tour2);

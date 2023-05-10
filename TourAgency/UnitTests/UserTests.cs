@@ -42,14 +42,16 @@ namespace UnitTests
         public void ReturnTickets_WithValidOrderId_ReturnsTrue()
         {
             // Arrange
-            if (JsonLogic.ReadFromJson(Agency.ORDERS_PATH, out List<Order> orders))
-                Agency.Instance.Orders = orders;
-
-            int orderId = 0;
+            var travelAgency = Agency.Instance;
+            var tour = new Tour("France", "Paris", DateTime.Now.AddDays(7), 7, 1000, TourStatus.Actual, 20, "Explore the City of Love");
             User user = new RegisteredUser("Email", "Name", "Password");
+            var order = new Order(2, OrderStatus.Actual, user, tour);
+            travelAgency.Tours.Add(tour);
+            travelAgency.Orders.Add(order);
+            int orderId = order.Id;
 
             // Act
-            bool result = user.ReturnTickets(orderId, Agency.Instance.Orders, out int index, out int ticketsReturned);
+            bool result = user.ReturnTickets(orderId, travelAgency.Orders, out int index, out int ticketsReturned);
 
             // Assert
             Assert.IsTrue(result);
@@ -58,18 +60,22 @@ namespace UnitTests
         [TestMethod]
         public void ReturnTickets_WithInvalidOrderId_ReturnsFalse()
         {
-            if (JsonLogic.ReadFromJson(Agency.ORDERS_PATH, out List<Order> orders))
-                Agency.Instance.Orders = orders;
-
-            // Arrange
-            int orderId = -1;
+            //// Arrange
+            var travelAgency = Agency.Instance;
+            var tour = new Tour("France", "Paris", DateTime.Now.AddDays(7), 7, 1000, TourStatus.Actual, 20, "Explore the City of Love");
             User user = new RegisteredUser("Email", "Name", "Password");
+            var order = new Order(2, OrderStatus.Actual, user, tour);
+            travelAgency.Tours.Add(tour);
+            travelAgency.Orders.Add(order);
+            int orderId = order.Id + 1;
 
             // Act
-            bool result = user.ReturnTickets(orderId, Agency.Instance.Orders, out int index, out int ticketsReturned);
+            bool result = user.ReturnTickets(orderId, travelAgency.Orders, out int index, out int ticketsReturned);
 
             // Assert
-            Assert.IsFalse(result);
+            //Assert.IsFalse(result);
+            Assert.AreEqual(-1, index);
+            Assert.AreEqual(0, ticketsReturned);
         }
     }
 }

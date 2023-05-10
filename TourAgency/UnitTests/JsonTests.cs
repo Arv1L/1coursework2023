@@ -1,4 +1,5 @@
 ﻿using TourAgency;
+using TourAgency.Models;
 
 namespace UnitTests
 {
@@ -53,23 +54,22 @@ namespace UnitTests
         {
             // Arrange
             string path = "test1.json";
-            List<User> expectedData = new List<User>()
+            List<Tour> expectedData = new List<Tour>()
             {
-                new RegisteredUser("test@example.com", "Test User", "password"),
-                new RegisteredUser("test1@example.com", "Test User", "password")
+                new Tour("France", "Paris", DateTime.Now.AddDays(7), 7, 1000, TourStatus.Actual, 20, "Explore the City of Love"),
+                new Tour("France2", "Paris2", DateTime.Now.AddDays(14), 7, 1000, TourStatus.Actual, 20, "Explore the City of Love")
             };
 
             // Act
-            bool result = JsonLogic.ReadFromJson(path, out List<RegisteredUser> actualData);
+            bool result = JsonLogic.ReadFromJson(path, out List<Tour> actualData);
 
             // Assert
             Assert.IsTrue(result);
             Assert.AreEqual(expectedData.Count, actualData.Count);
             for (int i = 0; i < expectedData.Count; i++)
             {
-                Assert.AreEqual(expectedData[i].Email, actualData[i].Email);
-                Assert.AreEqual(expectedData[i].Name, actualData[i].Name);
-                Assert.AreEqual(expectedData[i].Password, actualData[i].Password);
+                Assert.AreEqual(expectedData[i].Country, actualData[i].Country);
+                Assert.AreEqual(expectedData[i].City, actualData[i].City);
             }
         }
 

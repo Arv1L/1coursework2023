@@ -21,17 +21,17 @@
     "Status": 1
   },
   {
-    "Id": 0,
-    "Email": "admin@example.com",
-    "Name": "Volodymyr Kibets",
-    "Password": "1q2w3e4r",
-    "Status": 0
-  },
-  {
     "Id": 8,
     "Email": "user@example.com",
     "Name": "Firstname Lastname",
     "Password": "1q2w3e4r",
     "Status": 1
+  },
+  {
+    "Id": 0,
+    "Email": "admin@example.com",
+    "Name": "Volodymyr Kibets",
+    "Password": "1q2w3e4r",
+    "Status": 0
   }
 ]

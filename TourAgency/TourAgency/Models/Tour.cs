@@ -5,8 +5,8 @@ namespace TourAgency.Models
 {
     public class Tour : IComparable<Tour>, ILocation
     {
-        #region Static properties
-        public static int Counter { get; set; } = 0;
+        #region Fields
+        private static int counter = 0;
         #endregion
 
         #region Properties
@@ -24,7 +24,7 @@ namespace TourAgency.Models
 
         public Tour(string country, string city, DateTime date, int duration, float price, TourStatus status, int ticketsNumber, string description)
         {
-            Id = Counter++;
+            Id = counter++;
             Country = country;
             City = city;
             Date = date;
@@ -49,8 +49,8 @@ namespace TourAgency.Models
             CurrentTicketsNumber = currentTicketsNumber;
             Description = description;
 
-            if (Counter <= id)
-                Counter = id + 1;
+            if (counter <= id)
+                counter = id + 1;
         }
 
         public bool BuyTickets(int tickets) => CurrentTicketsNumber >= tickets;

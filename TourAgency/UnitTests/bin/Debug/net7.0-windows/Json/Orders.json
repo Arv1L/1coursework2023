@@ -1150,5 +1150,65 @@
     "Date": "2023-06-09T10:50:20.8231789+03:00",
     "Duration": 7,
     "Status": 1
+  },
+  {
+    "Id": 114,
+    "UserId": 65,
+    "TourId": 149,
+    "UserName": "Name",
+    "City": "Paris",
+    "Price": 2000,
+    "TicketNumber": 2,
+    "Date": "2023-05-27T16:57:13.9153628+03:00",
+    "Duration": 7,
+    "Status": 3
+  },
+  {
+    "Id": 115,
+    "UserId": 66,
+    "TourId": 150,
+    "UserName": "Name",
+    "City": "Paris",
+    "Price": 2000,
+    "TicketNumber": 2,
+    "Date": "2023-05-27T16:57:13.9283072+03:00",
+    "Duration": 7,
+    "Status": 3
+  },
+  {
+    "Id": 116,
+    "UserId": 67,
+    "TourId": 151,
+    "UserName": "Name",
+    "City": "Paris",
+    "Price": 2000,
+    "TicketNumber": 2,
+    "Date": "2023-05-10T16:57:13.970514+03:00",
+    "Duration": 7,
+    "Status": 1
+  },
+  {
+    "Id": 117,
+    "UserId": 68,
+    "TourId": 152,
+    "UserName": "Name",
+    "City": "Paris",
+    "Price": 2000,
+    "TicketNumber": 2,
+    "Date": "2023-05-27T16:57:13.9713748+03:00",
+    "Duration": 7,
+    "Status": 1
+  },
+  {
+    "Id": 119,
+    "UserId": 138,
+    "TourId": 155,
+    "UserName": "Name",
+    "City": "Paris",
+    "Price": 10000,
+    "TicketNumber": 2,
+    "Date": "2023-06-19T16:57:14.0336032+03:00",
+    "Duration": 7,
+    "Status": 1
   }
 ]

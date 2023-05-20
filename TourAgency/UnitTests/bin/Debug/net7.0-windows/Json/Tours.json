@@ -1366,5 +1366,77 @@
     "MaxTicketsNumber": 20,
     "CurrentTicketsNumber": 18,
     "Description": "Explore the City of Love"
+  },
+  {
+    "Id": 148,
+    "Country": "Spain",
+    "City": "Barcelona",
+    "Date": "2023-07-04T16:57:13.8680481+03:00",
+    "Duration": 7,
+    "Price": 500,
+    "Status": 0,
+    "MaxTicketsNumber": 20,
+    "CurrentTicketsNumber": 20,
+    "Description": "A week in sunny Barcelona"
+  },
+  {
+    "Id": 149,
+    "Country": "France",
+    "City": "Paris",
+    "Date": "2023-05-27T16:57:13.9153628+03:00",
+    "Duration": 7,
+    "Price": 1000,
+    "Status": 0,
+    "MaxTicketsNumber": 20,
+    "CurrentTicketsNumber": 22,
+    "Description": "Explore the City of Love"
+  },
+  {
+    "Id": 150,
+    "Country": "France",
+    "City": "Paris",
+    "Date": "2023-05-27T16:57:13.9283072+03:00",
+    "Duration": 7,
+    "Price": 1000,
+    "Status": 0,
+    "MaxTicketsNumber": 20,
+    "CurrentTicketsNumber": 20,
+    "Description": "Explore the City of Love"
+  },
+  {
+    "Id": 153,
+    "Country": "France",
+    "City": "Paris2",
+    "Date": "2023-07-09T16:57:13.971748+03:00",
+    "Duration": 7,
+    "Price": 1000,
+    "Status": 0,
+    "MaxTicketsNumber": 20,
+    "CurrentTicketsNumber": 20,
+    "Description": "Explore the City of Love"
+  },
+  {
+    "Id": 154,
+    "Country": "France",
+    "City": "Paris",
+    "Date": "2023-07-19T16:57:13.9791407+03:00",
+    "Duration": 7,
+    "Price": 5000,
+    "Status": 0,
+    "MaxTicketsNumber": 20,
+    "CurrentTicketsNumber": 20,
+    "Description": "Explore the City of Love"
+  },
+  {
+    "Id": 155,
+    "Country": "France",
+    "City": "Paris",
+    "Date": "2023-06-19T16:57:14.0336032+03:00",
+    "Duration": 7,
+    "Price": 5000,
+    "Status": 1,
+    "MaxTicketsNumber": 20,
+    "CurrentTicketsNumber": 18,
+    "Description": "Explore the City of Love"
   }
 ]

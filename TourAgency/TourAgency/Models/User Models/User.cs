@@ -7,8 +7,8 @@ namespace TourAgency
 {
     public abstract class User : IPerson
     {
-        #region Static properties
-        public static int Counter { get; set; } = 0;
+        #region Fields
+        private static int counter = 0;
         #endregion
 
         #region Properties
@@ -21,7 +21,7 @@ namespace TourAgency
 
         public User(string email, string name, string password)
         {
-            Id = Counter++;
+            Id = counter++;
             Email = email;
             Name = name;
             Password = password;
@@ -36,8 +36,8 @@ namespace TourAgency
             Password = password;
             Status = status;
 
-            if (Counter <= id)
-                Counter = id + 1;
+            if (counter <= id)
+                counter = id + 1;
         }
 
         public virtual bool OrderTour(Tour tour, int ticketsNumber, out Order order)

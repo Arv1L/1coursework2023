@@ -5,8 +5,8 @@ namespace TourAgency.Models
 {
     public class Order : ILocation
     {
-        #region Static properties
-        public static int Counter { get; set; } = 0;
+        #region Fields
+        private static int counter = 0;
         #endregion
 
         #region Properties
@@ -38,7 +38,7 @@ namespace TourAgency.Models
 
         public Order(int ticketNumber, OrderStatus status, User user, Tour tour)
         {
-            Id = Counter++;
+            Id = counter++;
             UserId = user.Id;
             TourId = tour.Id;
             UserName = user.Name;
@@ -64,8 +64,8 @@ namespace TourAgency.Models
             Duration = duration;
             Status = status;
 
-            if (Counter <= id)
-                Counter = id + 1;
+            if (counter <= id)
+                counter = id + 1;
         }
 
         public bool CancelOrder()

@@ -129,18 +129,7 @@ namespace TourAgency
 
             if (tour != null)
             {
-                if (tour.Status == TourStatus.Canceled)
-                {
-                    tourName.TextDecorations = TextDecorations.Strikethrough;
-                    tourCountry.TextDecorations = TextDecorations.Strikethrough;
-                    tourDuration.TextDecorations = TextDecorations.Strikethrough;
-                    tourPrice.TextDecorations = TextDecorations.Strikethrough;
-                    tourDate.TextDecorations = TextDecorations.Strikethrough;
-                    tourCurrentTicketNumber.TextDecorations = TextDecorations.Strikethrough;
-                    tourMaxTicketNumber.TextDecorations = TextDecorations.Strikethrough;
-                    tourDescription.TextDecorations = TextDecorations.Strikethrough;
-                }
-                else
+                if (Agency.Instance.CurrentUser != null && Agency.Instance.CurrentUser.Status == UserStatus.RegisteredUser)
                 {
                     tourName.TextDecorations = null;
                     tourCountry.TextDecorations = null;
@@ -150,18 +139,26 @@ namespace TourAgency
                     tourCurrentTicketNumber.TextDecorations = null;
                     tourMaxTicketNumber.TextDecorations = null;
                     tourDescription.TextDecorations = null;
-                }
 
-                if (Agency.Instance.CurrentUser != null && Agency.Instance.CurrentUser.Status == UserStatus.RegisteredUser)
+                    orderButton.IsEnabled = false;
+
                     if (tour.Date > DateTime.Now)
                     {
-                        if (tour.CurrentTicketsNumber > 0)
+                        if (tour.CurrentTicketsNumber > 0 && tour.Status == TourStatus.Actual)
                             orderButton.IsEnabled = true;
-                        else
-                            orderButton.IsEnabled = false;
+                        if (tour.Status == TourStatus.Canceled)
+                        {
+                            tourName.TextDecorations = TextDecorations.Strikethrough;
+                            tourCountry.TextDecorations = TextDecorations.Strikethrough;
+                            tourDuration.TextDecorations = TextDecorations.Strikethrough;
+                            tourPrice.TextDecorations = TextDecorations.Strikethrough;
+                            tourDate.TextDecorations = TextDecorations.Strikethrough;
+                            tourCurrentTicketNumber.TextDecorations = TextDecorations.Strikethrough;
+                            tourMaxTicketNumber.TextDecorations = TextDecorations.Strikethrough;
+                            tourDescription.TextDecorations = TextDecorations.Strikethrough;
+                        }
                     }
-                    else
-                        orderButton.IsEnabled = false;
+                }
 
                 tourName.Text = tour.City;
                 tourCountry.Text = tour.Country;

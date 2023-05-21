@@ -91,9 +91,6 @@ namespace TourAgency
         {
             userPanel.Visibility = Visibility.Collapsed;
 
-            if (Agency.Instance.CurrentUser!.Status == UserStatus.Administrator)
-                adminWindow.Close();
-
             Agency.Instance.CurrentUser = null;
 
             userButton.Content = userButton.Tag;
@@ -199,7 +196,7 @@ namespace TourAgency
                 OrderItemsSourceUpdated?.Invoke(this, new ItemsSourceEventArgs { ItemsSource = Agency.Instance.Orders });
 
                 confirmOrder.Visibility = Visibility.Collapsed;
-                tourCurrentTicketNumber.Text = "";
+                //tourCurrentTicketNumber.Text = ((Tour)tourList.Items.CurrentItem).CurrentTicketsNumber.ToString();
             }
         }
 

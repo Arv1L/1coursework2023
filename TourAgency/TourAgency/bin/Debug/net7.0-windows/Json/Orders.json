@@ -45,7 +45,7 @@
     "TicketNumber": 5,
     "Date": "2023-07-05T00:00:00",
     "Duration": 7,
-    "Status": 0
+    "Status": 1
   },
   {
     "Id": 4,

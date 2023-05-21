@@ -1,0 +1,7 @@
+D:\Homework\Універ\ООП КП\Програма\TourAgency.exe
+D:\Homework\Універ\ООП КП\Програма\TourAgency.dll
+D:\Homework\Універ\ООП КП\Програма\TourAgency.deps.json
+D:\Homework\Універ\ООП КП\Програма\TourAgency.runtimeconfig.json
+D:\Homework\Універ\ООП КП\Програма\TourAgency.pdb
+D:\Homework\Універ\ООП КП\Програма\MahApps.Metro.IconPacks.Core.dll
+D:\Homework\Універ\ООП КП\Програма\MahApps.Metro.IconPacks.Material.dll

@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "OwwS6eQg8atwy65ElzO1NO0qlU58ID/GEeCb0k5fQ5V5hbV+D3fQRtxtZ7v/kM1zUybjkFHMI/ByhO3FcukdNQ==",
+  "success": true,
+  "projectFilePath": "D:\\GitHub Repositories\\1coursework2023\\TourAgency\\TourAgency\\TourAgency.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vovak\\.nuget\\packages\\mahapps.metro.iconpacks.material\\4.11.0\\mahapps.metro.iconpacks.material.4.11.0.nupkg.sha512",
+    "C:\\Users\\vovak\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\7.0.5\\microsoft.netcore.app.runtime.win-x86.7.0.5.nupkg.sha512",
+    "C:\\Users\\vovak\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\7.0.5\\microsoft.windowsdesktop.app.runtime.win-x86.7.0.5.nupkg.sha512",
+    "C:\\Users\\vovak\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\7.0.5\\microsoft.aspnetcore.app.runtime.win-x86.7.0.5.nupkg.sha512",
+    "C:\\Users\\vovak\\.nuget\\packages\\microsoft.netcore.app.crossgen2.win-x64\\7.0.5\\microsoft.netcore.app.crossgen2.win-x64.7.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}

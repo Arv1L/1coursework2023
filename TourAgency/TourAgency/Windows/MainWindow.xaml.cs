@@ -17,7 +17,7 @@ namespace TourAgency
     public partial class MainWindow : Window
     {
         #region Fields
-        private AdminWindow adminWindow = new();
+        private AdminWindow? adminWindow;
         #endregion
 
         public MainWindow()
@@ -25,8 +25,6 @@ namespace TourAgency
             InitializeComponent();
 
             SortList();
-
-            adminWindow.TourItemsSourceUpdated += ItemsSourceUpdated;
         }
 
         #region UserPanel
@@ -100,6 +98,12 @@ namespace TourAgency
 
             userButton.Content = userButton.Tag;
             orderButton.IsEnabled = false;
+
+            if (adminWindow != null)
+            {
+                adminWindow.TourItemsSourceUpdated -= ItemsSourceUpdated;
+                adminWindow.Close();
+            }
         }
         #endregion
 
@@ -223,6 +227,11 @@ namespace TourAgency
                 {
                     if (status == UserStatus.RegisteredUser)
                         orderButton.IsEnabled = true;
+                    if (status == UserStatus.Administrator)
+                    {
+                        adminWindow = new AdminWindow();
+                        adminWindow.TourItemsSourceUpdated += ItemsSourceUpdated;
+                    }
 
                     if (Agency.Instance.CurrentTour != null && Agency.Instance.CurrentTour.Status == TourStatus.Canceled)
                         orderButton.IsEnabled = false;

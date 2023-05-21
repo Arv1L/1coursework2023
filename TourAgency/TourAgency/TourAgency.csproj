@@ -5,6 +5,10 @@
     <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+    <UseWindowsForms>False</UseWindowsForms>
+    <StartupObject>TourAgency.App</StartupObject>
+    <ApplicationIcon>Resources\Logo.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,7 +19,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Logo.ico" />
     <None Remove="Resources\Logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\Logo.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\Logo.ico" />
     <Resource Include="Resources\Logo.png" />
   </ItemGroup>
 

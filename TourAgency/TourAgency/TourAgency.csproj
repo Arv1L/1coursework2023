@@ -15,7 +15,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Logo.png" />
   </ItemGroup>
 
 </Project>

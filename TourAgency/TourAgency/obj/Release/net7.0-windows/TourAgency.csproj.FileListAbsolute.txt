@@ -34,3 +34,4 @@ D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Release\net7.0-
 D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Release\net7.0-windows\TourAgency.pdb
 D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Release\net7.0-windows\TourAgency.genruntimeconfig.cache
 D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Release\net7.0-windows\ref\TourAgency.dll
+D:\GitHub Repositories\1coursework2023\TourAgency\TourAgency\obj\Release\net7.0-windows\TourAgency_Content.g.cs

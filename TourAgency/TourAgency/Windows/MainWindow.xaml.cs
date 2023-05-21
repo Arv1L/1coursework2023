@@ -362,7 +362,7 @@ namespace TourAgency
         private void OnClose(object sender, RoutedEventArgs e)
         {
             Agency.Instance.SaveAgency();
-            adminWindow.Close();
+            adminWindow?.Close();
             Application.Current.Shutdown();
         }
         #endregion

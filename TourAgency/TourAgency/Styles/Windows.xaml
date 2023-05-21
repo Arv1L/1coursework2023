@@ -7,7 +7,6 @@
         <Setter Property="ResizeMode" Value="NoResize"/>
         <Setter Property="AllowsTransparency" Value="True"/>
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Icon" Value="/TourAgency;component/Resources/Logo.ico"/>
     </Style>
 
 </ResourceDictionary>
